@@ -11,6 +11,9 @@
 #include "Event.h"
 #include "EventManager.h"
 
+#include"GameObject.h"
+
+#include "Componet.h"
 namespace SpringEngine
 {
 	App& MainApp();

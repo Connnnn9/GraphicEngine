@@ -7,6 +7,30 @@
     <Filter Include="Src">
       <UniqueIdentifier>{049d85a3-e378-4887-ae26-50764c593c14}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inc\Componets">
+      <UniqueIdentifier>{ffaa769c-305f-452b-bfc1-1c2b388de489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Services">
+      <UniqueIdentifier>{16efd2e4-3445-4730-be5f-772048eda93c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Componets">
+      <UniqueIdentifier>{fe3ae5e8-7247-4ce7-b6eb-0448469d1a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Services">
+      <UniqueIdentifier>{a1d03dee-58c8-45a8-9aaf-39cda9a74876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Events">
+      <UniqueIdentifier>{f7bddc79-a750-4149-b519-9e94c62947a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Eevents">
+      <UniqueIdentifier>{0cadcf95-ace2-4f1f-a2b3-53cbd85bdbf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\Particles">
+      <UniqueIdentifier>{e0e862ac-63e2-4393-88ad-e257cb158aa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Particles">
+      <UniqueIdentifier>{c7c71f10-aa7e-4d73-9ecd-fd5bfd8dba06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\SpringEngine.h">
@@ -24,19 +48,25 @@
     <ClInclude Include="Inc\AppState.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\Particle.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ParticleSystem.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\FireworkParticleSystem.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\Event.h">
-      <Filter>Inc</Filter>
+      <Filter>Inc\Events</Filter>
     </ClInclude>
     <ClInclude Include="Inc\EventManager.h">
+      <Filter>Inc\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Particle.h">
+      <Filter>Inc\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ParticleSystem.h">
+      <Filter>Inc\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\FireworkParticleSystem.h">
+      <Filter>Src\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Componet.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameObject.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,16 +80,19 @@
     <ClCompile Include="Src\SpringEngine.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Particle.cpp">
-      <Filter>Src</Filter>
+    <ClCompile Include="Src\EventManager.cpp">
+      <Filter>Src\Eevents</Filter>
     </ClCompile>
     <ClCompile Include="Src\ParticleSystem.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Particle.cpp">
+      <Filter>Src\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Src\FireworkParticleSystem.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\Particles</Filter>
     </ClCompile>
-    <ClCompile Include="Src\EventManager.cpp">
+    <ClCompile Include="Src\GameObject.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
