@@ -1,5 +1,5 @@
 #pragma once
-
+#include "TypeIds.h"
 namespace SpringEngine
 {
 	class GameObject;
@@ -20,7 +20,9 @@ namespace SpringEngine
 		virtual void Update(float deltaTime) {}
 		virtual void DebugUI() {}
 
-		const GameObject& GetOwner() { return *mOwner; }
+		virtual uint32_t GetTypeId() const = 0;
+
+		GameObject& GetOwner() { return *mOwner; }
 		const GameObject& GetOwner() const{ return *mOwner; }
 
 		// serialize and deserialize

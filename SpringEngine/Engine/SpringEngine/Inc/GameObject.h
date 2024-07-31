@@ -8,6 +8,7 @@ namespace SpringEngine
 	{
 	public:
 		GameObject() = default;
+
 		void Initialize();
 		void Terminate();
 		void DebugUI();
@@ -19,7 +20,7 @@ namespace SpringEngine
 		template <class ComponetType>
 		ComponetType* AddComponet()
 		{
-			static_cast<std::is_base_of_v<Componet,ComponetType>,
+			static_assert(std::is_base_of_v<Componet,ComponetType>,
 				"GameObject: ComponetType Must be of type Componet");
 				ASSERT(!mInitialized, "GameObject: cannot add componets once initialized");
 				ASSERT(!HasA<ComponetType>(), "GameObject: already has componets type");
@@ -31,12 +32,31 @@ namespace SpringEngine
 		template <class ComponetType>
 		bool HasA()
 		{
-
+			static_assert(std::is_base_of_v<Componet, ComponetType>,
+				"GameObject: ComponetType Must be of type Componet");
+				for (auto& componet : mComponets)
+				{
+					if (componet->GetTypeId() == ComponetType::StaticGetTypeId())
+					{
+						return true;
+					}
+				}
+				return false;
 		}
 		template <class ComponetType>
 		const ComponetType* GetComponet() const
 		{
+			static_assert(std::is_base_of_v<Componet, ComponetType>,
+				"GameObject: ComponetType Must be of type Componet");
+				for (auto& componet : mComponets)
+				{
+					if (componet->GetTypeId() == ComponetType::StaticGetTypeId())
+					{
+						return static_cast<ComponetType*>(componet.get());
 
+					}
+				}
+				return nullptr;
 		}
 		template <class ComponetType>
 		ComponetType* GetComponet()

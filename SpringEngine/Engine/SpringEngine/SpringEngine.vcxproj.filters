@@ -69,6 +69,15 @@
     <ClInclude Include="Inc\GameObject.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\TypeIds.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TransformComponet.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\CameraComponet.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -94,6 +103,12 @@
     </ClCompile>
     <ClCompile Include="Src\GameObject.cpp">
       <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TransformComponet.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CameraComponet.cpp">
+      <Filter>Src\Componets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
