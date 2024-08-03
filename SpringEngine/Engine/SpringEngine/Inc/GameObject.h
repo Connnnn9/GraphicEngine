@@ -29,6 +29,7 @@ namespace SpringEngine
 				newComponet->mOwner = this;
 				return static_cast<ComponetType*>(newComponet.get());
 		}
+
 		template <class ComponetType>
 		bool HasA()
 		{
@@ -43,6 +44,7 @@ namespace SpringEngine
 				}
 				return false;
 		}
+
 		template <class ComponetType>
 		const ComponetType* GetComponet() const
 		{
@@ -58,10 +60,12 @@ namespace SpringEngine
 				}
 				return nullptr;
 		}
+
 		template <class ComponetType>
 		ComponetType* GetComponet()
 		{
-			return const_cast<ComponetType*>(GetComponet());
+			const GameObject* thisConst = static_cast<const GameObject*>(this);
+			return const_cast<ComponetType*>(thisConst->GetComponet<ComponetType>());
 		}
 	private:
 		std::string mName = "EMPTY";

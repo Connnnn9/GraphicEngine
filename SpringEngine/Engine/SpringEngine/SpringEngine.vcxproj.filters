@@ -78,6 +78,18 @@
     <ClInclude Include="Inc\CameraComponet.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\FPSCameraComponet.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameWorld.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Service.h">
+      <Filter>Inc\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\CameraService.h">
+      <Filter>Inc\Services</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -109,6 +121,15 @@
     </ClCompile>
     <ClCompile Include="Src\CameraComponet.cpp">
       <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\FPSCameraComponet.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameWorld.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\CameraService.cpp">
+      <Filter>Src\Services</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

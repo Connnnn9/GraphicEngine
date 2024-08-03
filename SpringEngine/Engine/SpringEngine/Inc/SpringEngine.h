@@ -3,7 +3,6 @@
 #include "Common.h"
 #include "App.h"
 #include "AppState.h"
-#include "CameraComponet.h"
 #include "Particle.h"
 #include "ParticleSystem.h"
 #include "FireworkParticleSystem.h"
@@ -12,9 +11,16 @@
 #include "EventManager.h"
 
 #include "GameObject.h"
+#include "GameWorld.h"
+
+#include "CameraComponet.h"
+#include "Componet.h"
+#include "FPSCameraComponet.h"
 #include "TransformComponet.h"
 
-#include "Componet.h"
+#include "Service.h"
+#include "CameraService.h"
+
 namespace SpringEngine
 {
 	App& MainApp();

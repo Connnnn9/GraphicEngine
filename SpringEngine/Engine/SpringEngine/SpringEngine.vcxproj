@@ -148,14 +148,18 @@
     <ClInclude Include="Inc\App.h" />
     <ClInclude Include="Inc\AppState.h" />
     <ClInclude Include="Inc\CameraComponet.h" />
+    <ClInclude Include="Inc\CameraService.h" />
     <ClInclude Include="Inc\Common.h" />
     <ClInclude Include="Inc\Componet.h" />
     <ClInclude Include="Inc\Event.h" />
     <ClInclude Include="Inc\EventManager.h" />
     <ClInclude Include="Inc\FireworkParticleSystem.h" />
+    <ClInclude Include="Inc\FPSCameraComponet.h" />
     <ClInclude Include="Inc\GameObject.h" />
+    <ClInclude Include="Inc\GameWorld.h" />
     <ClInclude Include="Inc\Particle.h" />
     <ClInclude Include="Inc\ParticleSystem.h" />
+    <ClInclude Include="Inc\Service.h" />
     <ClInclude Include="Inc\SpringEngine.h" />
     <ClInclude Include="Inc\TransformComponet.h" />
     <ClInclude Include="Inc\TypeIds.h" />
@@ -164,9 +168,12 @@
   <ItemGroup>
     <ClCompile Include="Src\App.cpp" />
     <ClCompile Include="Src\CameraComponet.cpp" />
+    <ClCompile Include="Src\CameraService.cpp" />
     <ClCompile Include="Src\EventManager.cpp" />
     <ClCompile Include="Src\FireworkParticleSystem.cpp" />
+    <ClCompile Include="Src\FPSCameraComponet.cpp" />
     <ClCompile Include="Src\GameObject.cpp" />
+    <ClCompile Include="Src\GameWorld.cpp" />
     <ClCompile Include="Src\Particle.cpp" />
     <ClCompile Include="Src\ParticleSystem.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">

@@ -7,6 +7,18 @@ namespace SpringEngine
 		Invalid,
 		Transform,
 		Camera,
+		FPSCamera,
+
+
+		Count
+	};
+
+	enum  class ServiceId
+	{
+		Invalid,
+		Camera,
+		Update,
+
 		Count
 	};
 }

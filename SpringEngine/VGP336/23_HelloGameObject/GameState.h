@@ -12,11 +12,11 @@ public:
 	void DebugUI() override;
 
 private:
-	void UpdateCameraControl(float deltaTime);
 
-	SpringEngine::Graphics::Camera mCamera;
 	SpringEngine::Graphics::DirectionalLight mDirectionalLight;
 	SpringEngine::Graphics::StandardEffect mStandardEffect;
 
 	SpringEngine::GameObject mGameObject;
+	SpringEngine::GameWorld mGameWorld;
+	
 };
