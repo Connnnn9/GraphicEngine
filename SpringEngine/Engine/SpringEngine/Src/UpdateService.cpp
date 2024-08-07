@@ -30,6 +30,7 @@ void UpdateService::Register(Component* component)
 		iter = std::find(mPendingComponents.begin(), mPendingComponents.end(), component);
 		isRegistered = iter != mPendingComponents.end();
 	}
+
 	if (isRegistered)
 	{
 		if (iter != mPendingComponents.end())

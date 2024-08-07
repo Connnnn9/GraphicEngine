@@ -25,6 +25,7 @@ void FPSCameraComponet::Terminate()
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
 	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
 	updateService->UnRegister(this);
+
 	mCameraComponet = nullptr;
 }	 
 	 
