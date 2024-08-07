@@ -14,12 +14,13 @@
 #include "GameWorld.h"
 
 #include "CameraComponet.h"
-#include "Componet.h"
+#include "Component.h"
 #include "FPSCameraComponet.h"
 #include "TransformComponet.h"
 
 #include "Service.h"
 #include "CameraService.h"
+#include "UpdateService.h"
 
 namespace SpringEngine
 {

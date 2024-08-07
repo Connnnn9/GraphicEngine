@@ -1,9 +1,11 @@
 #pragma once
 
-#include "Componet.h"
+#include "Component.h"
 
 namespace SpringEngine
 {
+	class GameWorld;
+
 	class GameObject final
 	{
 	public:
@@ -16,28 +18,31 @@ namespace SpringEngine
 		void SetName(std::string& name);
 		const std::string& GetName() const;
 		uint32_t GetUniqueId() const;
-		
-		template <class ComponetType>
-		ComponetType* AddComponet()
-		{
-			static_assert(std::is_base_of_v<Componet,ComponetType>,
-				"GameObject: ComponetType Must be of type Componet");
-				ASSERT(!mInitialized, "GameObject: cannot add componets once initialized");
-				ASSERT(!HasA<ComponetType>(), "GameObject: already has componets type");
 
-				auto& newComponet = mComponets.emplace_back(std::make_unique<ComponetType>());
-				newComponet->mOwner = this;
-				return static_cast<ComponetType*>(newComponet.get());
+		GameWorld& GetWorld();
+		const GameWorld& GetWorld() const;
+		
+		template <class ComponentType>
+		ComponentType* AddComponent()
+		{
+			static_assert(std::is_base_of_v<Component,ComponentType>,
+				"GameObject: ComponentType Must be of type Component");
+				ASSERT(!mInitialized, "GameObject: cannot add components once initialized");
+				ASSERT(!HasA<ComponentType>(), "GameObject: already has components type");
+
+				auto& newComponent = mComponents.emplace_back(std::make_unique<ComponentType>());
+				newComponent->mOwner = this;
+				return static_cast<ComponentType*>(newComponent.get());
 		}
 
-		template <class ComponetType>
+		template <class ComponentType>
 		bool HasA()
 		{
-			static_assert(std::is_base_of_v<Componet, ComponetType>,
-				"GameObject: ComponetType Must be of type Componet");
-				for (auto& componet : mComponets)
+			static_assert(std::is_base_of_v<Component, ComponentType>,
+				"GameObject: ComponentType Must be of type Component");
+				for (auto& component : mComponents)
 				{
-					if (componet->GetTypeId() == ComponetType::StaticGetTypeId())
+					if (component->GetTypeId() == ComponentType::StaticGetTypeId())
 					{
 						return true;
 					}
@@ -45,34 +50,37 @@ namespace SpringEngine
 				return false;
 		}
 
-		template <class ComponetType>
-		const ComponetType* GetComponet() const
+		template <class ComponentType>
+		const ComponentType* GetComponent() const
 		{
-			static_assert(std::is_base_of_v<Componet, ComponetType>,
-				"GameObject: ComponetType Must be of type Componet");
-				for (auto& componet : mComponets)
+			static_assert(std::is_base_of_v<Component, ComponentType>,
+				"GameObject: ComponentType Must be of type Component");
+				for (auto& component : mComponents)
 				{
-					if (componet->GetTypeId() == ComponetType::StaticGetTypeId())
+					if (component->GetTypeId() == ComponentType::StaticGetTypeId())
 					{
-						return static_cast<ComponetType*>(componet.get());
+						return static_cast<ComponentType*>(component.get());
 
 					}
 				}
 				return nullptr;
 		}
 
-		template <class ComponetType>
-		ComponetType* GetComponet()
+		template <class ComponentType>
+		ComponentType* GetComponent()
 		{
 			const GameObject* thisConst = static_cast<const GameObject*>(this);
-			return const_cast<ComponetType*>(thisConst->GetComponet<ComponetType>());
+			return const_cast<ComponentType*>(thisConst->GetComponent<ComponentType>());
 		}
 	private:
 		std::string mName = "EMPTY";
 		bool mInitialized = false;
 		uint32_t mUniqueId = 0;
 
-		using Componets = std::vector<std::unique_ptr<Componet>>;
-		Componets mComponets;
+		using Components = std::vector<std::unique_ptr<Component>>;
+		Components mComponents;
+
+		friend class GameWorld;
+		GameWorld* mWorld = nullptr;
 	};
 }

@@ -3,6 +3,9 @@
 #include "CameraComponet.h"
 #include "GameObject.h"
 
+#include "GameWorld.h"
+#include "UpdateService.h"
+
 using namespace SpringEngine;
 using namespace SpringEngine::Graphics;
 using namespace SpringEngine::Math;
@@ -10,11 +13,18 @@ using namespace SpringEngine::Input;
 
 void FPSCameraComponet::Initialize()
 {	 
-	mCameraComponet = GetOwner().GetComponet<CameraComponet>();
+	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
+	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
+	updateService->Register(this);
+
+	mCameraComponet = GetOwner().GetComponent<CameraComponet>();
 }	 
 	 
 void FPSCameraComponet::Terminate()
-{	 
+{
+	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
+	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
+	updateService->UnRegister(this);
 	mCameraComponet = nullptr;
 }	 
 	 

@@ -63,7 +63,7 @@
     <ClInclude Include="Inc\FireworkParticleSystem.h">
       <Filter>Src\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\Componet.h">
+    <ClInclude Include="Inc\Component.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
     <ClInclude Include="Inc\GameObject.h">
@@ -88,6 +88,9 @@
       <Filter>Inc\Services</Filter>
     </ClInclude>
     <ClInclude Include="Inc\CameraService.h">
+      <Filter>Inc\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UpdateService.h">
       <Filter>Inc\Services</Filter>
     </ClInclude>
   </ItemGroup>
@@ -129,6 +132,9 @@
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\CameraService.cpp">
+      <Filter>Src\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UpdateService.cpp">
       <Filter>Src\Services</Filter>
     </ClCompile>
   </ItemGroup>

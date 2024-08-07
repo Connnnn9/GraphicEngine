@@ -150,7 +150,7 @@
     <ClInclude Include="Inc\CameraComponet.h" />
     <ClInclude Include="Inc\CameraService.h" />
     <ClInclude Include="Inc\Common.h" />
-    <ClInclude Include="Inc\Componet.h" />
+    <ClInclude Include="Inc\Component.h" />
     <ClInclude Include="Inc\Event.h" />
     <ClInclude Include="Inc\EventManager.h" />
     <ClInclude Include="Inc\FireworkParticleSystem.h" />
@@ -163,6 +163,7 @@
     <ClInclude Include="Inc\SpringEngine.h" />
     <ClInclude Include="Inc\TransformComponet.h" />
     <ClInclude Include="Inc\TypeIds.h" />
+    <ClInclude Include="Inc\UpdateService.h" />
     <ClInclude Include="Src\Precompiled.h" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +182,7 @@
     </ClCompile>
     <ClCompile Include="Src\SpringEngine.cpp" />
     <ClCompile Include="Src\TransformComponet.cpp" />
+    <ClCompile Include="Src\UpdateService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Framework\Core\Core.vcxproj">

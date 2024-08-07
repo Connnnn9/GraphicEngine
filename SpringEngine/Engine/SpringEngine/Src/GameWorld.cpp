@@ -33,7 +33,7 @@ void GameWorld::Update(float deltaTime)
 {
 	for (auto& gameObject : mPendingAddObjects)
 	{
-		if (std::find(mGameObjects.begin(),mGameObjects.end(),gameObject)== mGameObjects.end())
+		if (std::find(mGameObjects.begin(), mGameObjects.end(), gameObject) == mGameObjects.end())
 		{
 			mGameObjects.push_back(gameObject);
 		}
@@ -66,6 +66,10 @@ void GameWorld::Render()
 
 void GameWorld::DebugUI()
 {
+	for (auto& GameObject : mGameObjects)
+	{
+		GameObject->DebugUI();
+	}
 	for (auto& service : mServices)
 	{
 		service->DebugUI();
@@ -74,6 +78,7 @@ void GameWorld::DebugUI()
 
 void GameWorld::AddGameObject(GameObject* gameObject)
 {
+	gameObject->mWorld = this;
 	mPendingAddObjects.push_back(gameObject);
 }
 

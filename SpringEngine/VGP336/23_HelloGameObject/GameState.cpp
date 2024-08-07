@@ -13,17 +13,19 @@ void GameState::Initialize()
 	mDirectionalLight.diffuse = { 0.8f,0.8f,0.8f,1.0f };
 	mDirectionalLight.specular = { 1.0f,1.0f,1.0f,1.0f };
 
-	
+	mGameWorld.AddService<CameraService>();
+	mGameWorld.AddService<UpdateService>();
 	mGameWorld.Initialize();
 
-	mGameObject.AddComponet<TransformComponet>();
-	CameraComponet* cc = mGameObject.AddComponet<CameraComponet>();
-	mGameObject.AddComponet<FPSCameraComponet>();
+	mGameWorld.AddGameObject(&mGameObject);
+
+	mGameObject.AddComponent<TransformComponet>();
+	CameraComponet* cc = mGameObject.AddComponent<CameraComponet>();
+	mGameObject.AddComponent<FPSCameraComponet>();
 	mGameObject.Initialize();
 	std::string name = "GameObject1";
 	mGameObject.SetName(name);
 
-	mGameWorld.AddGameObject(&mGameObject);
 
 	mStandardEffect.Initialize(L"../../Assets/Shaders/Standard.fx");
 	mStandardEffect.SetCamera(cc->GetCamera());
@@ -44,14 +46,11 @@ void GameState::Update(const float deltaTime)
 void GameState::Render()
 {
 	mGameWorld.Render();
-
-	CameraComponet* cc = mGameObject.GetComponet<CameraComponet>();
-	SimpleDraw::AddGroundPlane(10.0f, Colors::White);
-	SimpleDraw::Render(cc->GetCamera());
 }
 void GameState::DebugUI()
 {
+	SimpleDraw::AddGroundPlane(10.0f, Colors::White);
 	ImGui::Begin("Debug control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-		mGameWorld.Render();
+		mGameWorld.DebugUI();
 	ImGui::End();
 }

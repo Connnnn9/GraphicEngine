@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Componet.h"
+#include "Component.h"
 
 namespace SpringEngine
 {
 	class CameraComponet;
 
-	class FPSCameraComponet final : public Componet
+	class FPSCameraComponet final : public Component
 	{
 	public:
 		SET_TYPE_ID(ComponetId::FPSCamera);

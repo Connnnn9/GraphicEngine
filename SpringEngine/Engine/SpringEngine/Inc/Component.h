@@ -4,16 +4,16 @@ namespace SpringEngine
 {
 	class GameObject;
 
-	class Componet
+	class Component
 	{
 	public:
-		Componet() = default;
-		virtual ~Componet() = default;
+		Component() = default;
+		virtual ~Component() = default;
 
-		Componet(const Componet&) = delete;
-		Componet(const Componet&&) = delete;
-		Componet& operator=(const Componet&) = delete;
-		Componet& operator=(const Componet&&) = delete;
+		Component(const Component&) = delete;
+		Component(const Component&&) = delete;
+		Component& operator=(const Component&) = delete;
+		Component& operator=(const Component&&) = delete;
 
 		virtual void Initialize() {}
 		virtual void Terminate() {}

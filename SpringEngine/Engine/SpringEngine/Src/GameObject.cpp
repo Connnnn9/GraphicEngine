@@ -8,9 +8,9 @@ static uint32_t gUniqueId = 0;
 void GameObject::Initialize()
 {
 	ASSERT(!mInitialized, "GameObject: is already initialized");
-	for (auto& componet : mComponets)
+	for (auto& component : mComponents)
 	{
-		componet->Initialize();
+		component->Initialize();
 	}
 	mUniqueId = ++gUniqueId;
 	mInitialized = true;
@@ -18,9 +18,9 @@ void GameObject::Initialize()
 
 void GameObject::Terminate()
 {
-	for (auto& componet : mComponets)
+	for (auto& component : mComponents)
 	{
-		componet->Terminate();
+		component->Terminate();
 	}
 }
 
@@ -28,9 +28,9 @@ void GameObject::DebugUI()
 {
 	if (ImGui::CollapsingHeader(mName.c_str()))
 	{
-		for (auto& componet : mComponets)
+		for (auto& component : mComponents)
 		{
-			componet->DebugUI();
+			component->DebugUI();
 		}
 	}
 }
@@ -48,4 +48,14 @@ const std::string& GameObject::GetName() const
 uint32_t GameObject::GetUniqueId() const
 {
 	return mUniqueId;
+}
+
+GameWorld& GameObject::GetWorld()
+{
+	return *mWorld;
+}
+
+const GameWorld& GameObject::GetWorld() const
+{
+	return *mWorld;
 }
