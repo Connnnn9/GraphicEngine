@@ -157,8 +157,10 @@
     <ClInclude Include="Inc\FPSCameraComponet.h" />
     <ClInclude Include="Inc\GameObject.h" />
     <ClInclude Include="Inc\GameWorld.h" />
+    <ClInclude Include="Inc\MeshComponent.h" />
     <ClInclude Include="Inc\Particle.h" />
     <ClInclude Include="Inc\ParticleSystem.h" />
+    <ClInclude Include="Inc\RenderService.h" />
     <ClInclude Include="Inc\Service.h" />
     <ClInclude Include="Inc\SpringEngine.h" />
     <ClInclude Include="Inc\TransformComponet.h" />
@@ -174,6 +176,7 @@
     <ClCompile Include="Src\FireworkParticleSystem.cpp" />
     <ClCompile Include="Src\FPSCameraComponet.cpp" />
     <ClCompile Include="Src\GameObject.cpp" />
+    <ClCompile Include="Src\GameObjectFactory.cpp" />
     <ClCompile Include="Src\GameWorld.cpp" />
     <ClCompile Include="Src\Particle.cpp" />
     <ClCompile Include="Src\ParticleSystem.cpp" />

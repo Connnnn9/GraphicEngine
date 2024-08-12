@@ -4,20 +4,21 @@ namespace SpringEngine
 {
 	enum class ComponetId
 	{
-		Invalid,
-		Transform,
-		Camera,
-		FPSCamera,
-
+		Invalid,                // Invaild component id
+		Transform,              // Transform for component, contains positional data 
+		Camera,                 // Stationary camera information
+		FPSCamera,              // Functionality for a camera to move
+		Mesh,					// Renders a MeshBuilt shape
 
 		Count
 	};
 
 	enum  class ServiceId
 	{
-		Invalid,
-		Camera,
-		Update,
+		Invalid,               // invalid service id
+		Camera,                // Registers and manages focus camera
+		Update,				   // Registers and updates any component that requires an update
+		Render,                // Registers and renders any graphical components
 
 		Count
 	};

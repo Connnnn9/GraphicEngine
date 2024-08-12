@@ -13,7 +13,7 @@ void UpdateService::Update(float deltaTime)
 	}
 
 	mIsUpdating = false;
-	for (Component* component : mUpdateComponents)
+	for (Component* component : mPendingComponents)
 	{
 		mUpdateComponents.push_back(component);
 	}
@@ -31,12 +31,8 @@ void UpdateService::Register(Component* component)
 		isRegistered = iter != mPendingComponents.end();
 	}
 
-	if (isRegistered)
+	if (!isRegistered)
 	{
-		if (iter != mPendingComponents.end())
-		{
-			mPendingComponents.erase(iter);
-		}
 		if (mIsUpdating)
 		{
 			mPendingComponents.push_back(component);

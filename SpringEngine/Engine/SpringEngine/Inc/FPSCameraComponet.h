@@ -14,11 +14,11 @@ namespace SpringEngine
 		void Initialize() override;
 		void Terminate() override;
 		void Update(float deltaTime) override;
-	
+
 	private:
 		CameraComponet* mCameraComponet = nullptr;
-		float mShiftSpeed;
-		float mMoveSpeed;
-		float mTurnSpeed;
+		float mShiftSpeed = 10.0f;
+		float mMoveSpeed = 1.0f;
+		float mTurnSpeed = 0.1f;
 	};
 }

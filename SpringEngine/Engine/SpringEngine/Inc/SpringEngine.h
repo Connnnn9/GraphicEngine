@@ -16,10 +16,12 @@
 #include "CameraComponet.h"
 #include "Component.h"
 #include "FPSCameraComponet.h"
+#include "MeshComponent.h"
 #include "TransformComponet.h"
 
 #include "Service.h"
 #include "CameraService.h"
+#include "RenderService.h"
 #include "UpdateService.h"
 
 namespace SpringEngine
