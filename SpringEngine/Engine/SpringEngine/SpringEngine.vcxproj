@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -164,7 +164,7 @@
     <ClInclude Include="Inc\RenderService.h" />
     <ClInclude Include="Inc\Service.h" />
     <ClInclude Include="Inc\SpringEngine.h" />
-    <ClInclude Include="Inc\TransformComponet.h" />
+    <ClInclude Include="Inc\TransformComponent.h" />
     <ClInclude Include="Inc\TypeIds.h" />
     <ClInclude Include="Inc\UpdateService.h" />
     <ClInclude Include="Src\Precompiled.h" />
@@ -187,7 +187,7 @@
     </ClCompile>
     <ClCompile Include="Src\RenderService.cpp" />
     <ClCompile Include="Src\SpringEngine.cpp" />
-    <ClCompile Include="Src\TransformComponet.cpp" />
+    <ClCompile Include="Src\TransformComponent.cpp" />
     <ClCompile Include="Src\UpdateService.cpp" />
   </ItemGroup>
   <ItemGroup>

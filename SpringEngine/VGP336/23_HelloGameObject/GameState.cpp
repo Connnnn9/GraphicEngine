@@ -19,9 +19,9 @@ void GameState::Initialize()
 
 	mGameWorld.AddGameObject(&mGameObject);
 
-	mGameObject.AddComponent<TransformComponet>();
-	CameraComponet* cc = mGameObject.AddComponent<CameraComponet>();
-	mGameObject.AddComponent<FPSCameraComponet>();
+	mGameObject.AddComponent<TransformComponent>();
+	CameraComponent* cc = mGameObject.AddComponent<CameraComponent>();
+	mGameObject.AddComponent<FPSCameraComponent>();
 	mGameObject.Initialize();
 	std::string name = "GameObject1";
 	mGameObject.SetName(name);

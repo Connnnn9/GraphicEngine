@@ -9,7 +9,7 @@ namespace SpringEngine
 	class FPSCameraComponent final : public Component
 	{
 	public:
-		SET_TYPE_ID(ComponetId::FPSCamera);
+		SET_TYPE_ID(ComponentId::FPSCamera);
 
 		void Initialize() override;
 		void Terminate() override;

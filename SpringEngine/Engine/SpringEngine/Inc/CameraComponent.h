@@ -7,7 +7,7 @@ namespace SpringEngine
 	class CameraComponent final : public Component
 	{
 	public:
-		SET_TYPE_ID(ComponetId::Camera);
+		SET_TYPE_ID(ComponentId::Camera);
 
 		void Initialize() override;
 		void Terminate() override;

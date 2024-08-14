@@ -1,6 +1,6 @@
 #include "Precompiled.h"
 #include "FPSCameraComponent.h"
-#include "CameraComponet.h"
+#include "CameraComponent.h"
 #include "GameObject.h"
 
 #include "GameWorld.h"

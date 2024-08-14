@@ -19,7 +19,7 @@ void GameState::Initialize()
 	GameObjectFactory::Make("../../Assets/Templates/fps_camera.json", mCameraObject);
 	std::string name = "CameraObject";
 	mCameraObject.SetName(name);
-
+	
 	//Game Object Factory
 	GameObjectFactory::Make("../../Assets/Templates/test_object.json", mTestGameObject);
 	name = "test_object";

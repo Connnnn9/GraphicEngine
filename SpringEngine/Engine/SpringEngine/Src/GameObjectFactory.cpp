@@ -58,7 +58,7 @@ void GameObjectFactory::Make(const std::filesystem::path& templatePath, GameObje
 	auto components = doc["Components"].GetObj();
 	for (auto& component : components)
 	{
-		Component* newComponent = AddComponent(component.name.GetString(), gameObject);
+		Component* newComponent = AddComponent(component.name.GetString(), gameObject); 
 		if (newComponent != nullptr)
 		{
 			newComponent->Deserialize(component.value);

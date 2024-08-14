@@ -5,7 +5,7 @@
 
 #include "CameraService.h"
 #include "MeshComponent.h"
-#include "TransformComponet.h"
+#include "TransformComponent.h"
 
 using namespace SpringEngine;
 using namespace SpringEngine::Graphics;
@@ -94,7 +94,7 @@ void RenderService::Register(const MeshComponent* meshComponent)
 
 	const GameObject& gameObject = meshComponent->GetOwner();
 	entry.renderComponent = meshComponent;
-	entry.transformComponent = gameObject.GetComponent<TransformComponet>();
+	entry.transformComponent = gameObject.GetComponent<TransformComponent>();
 	entry.castShadow = meshComponent->CanCastShaow();
 	entry.renderGroup = CreateRenderGroup(meshComponent->GetModel());
 }

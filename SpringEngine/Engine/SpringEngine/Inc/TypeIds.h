@@ -2,7 +2,7 @@
 
 namespace SpringEngine
 {
-	enum class ComponetId
+	enum class ComponentId
 	{
 		Invalid,                // Invaild component id
 		Transform,              // Transform for component, contains positional data 

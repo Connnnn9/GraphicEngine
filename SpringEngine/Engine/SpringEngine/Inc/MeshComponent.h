@@ -7,7 +7,7 @@ namespace SpringEngine
 	class MeshComponent : public Component
 	{
 	public:
-		SET_TYPE_ID(ComponetId::Mesh);
+		SET_TYPE_ID(ComponentId::Mesh);
 
 		void Initialize() override;
 		void Terminate() override;

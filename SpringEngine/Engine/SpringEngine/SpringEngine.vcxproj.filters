@@ -72,7 +72,7 @@
     <ClInclude Include="Inc\TypeIds.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\TransformComponet.h">
+    <ClInclude Include="Inc\TransformComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
     <ClInclude Include="Inc\CameraComponent.h">

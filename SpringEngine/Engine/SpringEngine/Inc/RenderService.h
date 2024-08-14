@@ -7,7 +7,7 @@ namespace SpringEngine
 	class CameraService;
 	class Component;
 	class MeshComponent;
-	class TransformComponet;
+	class TransformComponent;
 
 	class RenderService final : public Service
 	{
@@ -35,7 +35,7 @@ namespace SpringEngine
 		{
 			bool castShadow = true;
 			const Component* renderComponent = nullptr;
-			const TransformComponet* transformComponent = nullptr;
+			const TransformComponent* transformComponent = nullptr;
 			Graphics::RenderGroup renderGroup;
 		};
 

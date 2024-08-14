@@ -5,11 +5,12 @@
       "Rotation": [ 0.0, 0.0, 0.0, 1.0 ],
       "Scale": [ 1.0, 1.0, 1.0 ]
     },
-    "MeshComponents": {
+    "MeshComponent": {
       "Shape": {
-        "Type": 60,
+        "Type": "Sphere",
         "Slices": 60,
-        "Radiuns": 1.0
+        "Rings": 60,
+        "Radius": 1.0
       },
       "Material": {
         "Ambient": [ 0.5, 0.5, 0.5, 1.0 ],
