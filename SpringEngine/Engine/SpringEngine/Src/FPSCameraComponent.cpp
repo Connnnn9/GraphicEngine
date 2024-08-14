@@ -1,5 +1,5 @@
 #include "Precompiled.h"
-#include "FPSCameraComponet.h"
+#include "FPSCameraComponent.h"
 #include "CameraComponet.h"
 #include "GameObject.h"
 
@@ -11,27 +11,27 @@ using namespace SpringEngine::Graphics;
 using namespace SpringEngine::Math;
 using namespace SpringEngine::Input;
 
-void FPSCameraComponet::Initialize()
+void FPSCameraComponent::Initialize()
 {	 
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
 	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
 	updateService->Register(this);
 
-	mCameraComponet = GetOwner().GetComponent<CameraComponet>();
+	mCameraComponent = GetOwner().GetComponent<CameraComponent>();
 }	 
 	 
-void FPSCameraComponet::Terminate()
+void FPSCameraComponent::Terminate()
 {
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
 	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
 	updateService->UnRegister(this);
 
-	mCameraComponet = nullptr;
+	mCameraComponent = nullptr;
 }	 
 	 
-void FPSCameraComponet::Update(float deltaTime)
+void FPSCameraComponent::Update(float deltaTime)
 {
-	Camera& camera = mCameraComponet->GetCamera();
+	Camera& camera = mCameraComponent->GetCamera();
 	InputSystem* input = InputSystem::Get();
 	const float moveSpeed = input->IsKeyDown(KeyCode::LSHIFT) ? mShiftSpeed : mMoveSpeed;
 	const float turnSpeed = mTurnSpeed;
@@ -63,5 +63,21 @@ void FPSCameraComponet::Update(float deltaTime)
 	{
 		camera.Yaw(input->GetMouseMoveX() * turnSpeed * deltaTime);
 		camera.Pitch(input->GetMouseMoveY() * turnSpeed * deltaTime);
+	}
+}
+
+void FPSCameraComponent::Deserialize(const rapidjson::Value& value)
+{
+	if (value.HasMember("MoveSpeed"))
+	{
+		mMoveSpeed = value["MoveSpeed"].GetFloat();
+	}
+	if (value.HasMember("TurnSpeed"))
+	{
+		mTurnSpeed = value["TurnSpeed"].GetFloat();
+	}
+	if (value.HasMember("ShiftSpeed"))
+	{
+		mShiftSpeed = value["ShiftSpeed"].GetFloat();
 	}
 }

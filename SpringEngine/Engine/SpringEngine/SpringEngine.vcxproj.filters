@@ -75,10 +75,10 @@
     <ClInclude Include="Inc\TransformComponet.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\CameraComponet.h">
+    <ClInclude Include="Inc\CameraComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\FPSCameraComponet.h">
+    <ClInclude Include="Inc\FPSCameraComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
     <ClInclude Include="Inc\GameWorld.h">
@@ -98,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="Inc\RenderService.h">
       <Filter>Inc\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\GameObjectFactory.h">
+      <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -128,10 +131,10 @@
     <ClCompile Include="Src\TransformComponet.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
-    <ClCompile Include="Src\CameraComponet.cpp">
+    <ClCompile Include="Src\CameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
-    <ClCompile Include="Src\FPSCameraComponet.cpp">
+    <ClCompile Include="Src\FPSCameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
     <ClCompile Include="Src\GameWorld.cpp">
@@ -145,6 +148,12 @@
     </ClCompile>
     <ClCompile Include="Src\GameObjectFactory.cpp">
       <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MeshComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\RenderService.cpp">
+      <Filter>Src\Services</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

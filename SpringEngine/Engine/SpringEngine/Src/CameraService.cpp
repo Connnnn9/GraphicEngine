@@ -1,7 +1,7 @@
 #include "Precompiled.h"
 #include "CameraService.h"
 
-#include "CameraComponet.h"
+#include "CameraComponent.h"
 
 using namespace SpringEngine;
 using namespace SpringEngine::Graphics;
@@ -25,18 +25,18 @@ void  CameraService::SetMainCamera(uint32_t index)
 	}
 }	  
 	  
-void  CameraService::Register(const CameraComponet* cameraComponet)
+void  CameraService::Register(const CameraComponent* cameraComponent)
 {	 
-	mCameraEntries.push_back(cameraComponet);
+	mCameraEntries.push_back(cameraComponent);
 	if (mMainCamera == nullptr)
 	{
-		mMainCamera = cameraComponet;
+		mMainCamera = cameraComponent;
 	}
 }	  
 	  
-void  CameraService::UnRegister(const CameraComponet* cameraComponet)
+void  CameraService::UnRegister(const CameraComponent* cameraComponent)
 {
-	auto iter = std::find(mCameraEntries.begin(), mCameraEntries.end(), cameraComponet);
+	auto iter = std::find(mCameraEntries.begin(), mCameraEntries.end(), cameraComponent);
 	if (iter != mCameraEntries.end())
 	{
 		if (mMainCamera == *iter) 

@@ -10,5 +10,7 @@ namespace SpringEngine
 		SET_TYPE_ID(ComponetId::Transform);
 
 		void DebugUI() override;
+
+		virtual void Deserialize(const rapidjson::Value& value) override;
 	};
 }

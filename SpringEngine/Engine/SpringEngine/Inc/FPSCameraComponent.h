@@ -4,9 +4,9 @@
 
 namespace SpringEngine
 {
-	class CameraComponet;
+	class CameraComponent;
 
-	class FPSCameraComponet final : public Component
+	class FPSCameraComponent final : public Component
 	{
 	public:
 		SET_TYPE_ID(ComponetId::FPSCamera);
@@ -15,8 +15,10 @@ namespace SpringEngine
 		void Terminate() override;
 		void Update(float deltaTime) override;
 
+		virtual void Deserialize(const rapidjson::Value& value) override;
+
 	private:
-		CameraComponet* mCameraComponet = nullptr;
+		CameraComponent* mCameraComponent = nullptr;
 		float mShiftSpeed = 10.0f;
 		float mMoveSpeed = 1.0f;
 		float mTurnSpeed = 0.1f;

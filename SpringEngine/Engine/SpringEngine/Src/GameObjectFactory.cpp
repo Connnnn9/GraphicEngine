@@ -4,9 +4,9 @@
 #include "GameObject.h"
 
 //components
-#include "TransformComponet.h"
-#include "CameraComponet.h"
-#include "FPSCameraComponet.h"
+#include "TransformComponent.h"
+#include "CameraComponent.h"
+#include "FPSCameraComponent.h"
 #include "MeshComponent.h"
 
 using namespace SpringEngine;
@@ -16,20 +16,54 @@ namespace
 {
 	using namespace SpringEngine;
 
-	Component* AddComponet(const std::string& componentName, GameObject& gameObject)
+	Component* AddComponent(const std::string& componentName, GameObject& gameObject)
 	{
 		Component* component = nullptr;
 		if (componentName == "TransformComponent")
 		{
-			component = gameObject.AddComponent<TransformComponet>();
+			component = gameObject.AddComponent<TransformComponent>();
 		}
-		else if (componentName == "CameraComponet")
+		else if (componentName == "CameraComponent")
 		{
-			component = gameObject.AddComponent<CameraComponet>();
+			component = gameObject.AddComponent<CameraComponent>();
 		}
 		else if (componentName == "FPSCameraComponent")
 		{
-			component = gameObject.AddComponent<FPSCameraComponet>();
+			component = gameObject.AddComponent<FPSCameraComponent>();
+		}
+		else if (componentName == "MeshComponent")
+		{
+			component = gameObject.AddComponent<MeshComponent>();
+		}
+		else
+		{
+			ASSERT(false, "GameObjectFactory: unrecognized component %s", componentName.c_str());
+		}
+		return component;
+	}
+}
+
+void GameObjectFactory::Make(const std::filesystem::path& templatePath, GameObject& gameObject)
+{
+	FILE* file = nullptr;
+	auto err = fopen_s(&file, templatePath.u8string().c_str(), "r");
+	ASSERT(err == 0, "GameObjectFactory: failed to open file %s", templatePath.u8string().c_str());
+
+	char readBuffer[65536];
+	rj::FileReadStream readStream(file, readBuffer, sizeof(readBuffer));
+	fclose(file);
+
+	rj::Document doc;
+	doc.ParseStream(readStream);
+	auto components = doc["Components"].GetObj();
+	for (auto& component : components)
+	{
+		Component* newComponent = AddComponent(component.name.GetString(), gameObject);
+		if (newComponent != nullptr)
+		{
+			newComponent->Deserialize(component.value);
 		}
 	}
+
+	gameObject.Initialize();
 }

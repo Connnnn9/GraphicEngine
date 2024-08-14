@@ -26,6 +26,8 @@ namespace SpringEngine
 		const GameObject& GetOwner() const{ return *mOwner; }
 
 		// serialize and deserialize
+		virtual void Serialize(rapidjson::Document& doc, rapidjson::Value& value) {}
+		virtual void Deserialize(const rapidjson::Value& value) {}
 	private:
 		friend class GameObject;
 		GameObject* mOwner = nullptr;

@@ -7,7 +7,7 @@ int	WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 	mainApp.AddState<GameState>("GameState");
 
 	SpringEngine::AppConfig config;
-	config.appName = L"Hello Game Object";
+	config.appName = L"Hello Game Object Factory";
 	config.winWidth = 1280;
 	config.winHeight = 780;
 	mainApp.Run(config);

@@ -12,10 +12,11 @@
 
 #include "GameObject.h"
 #include "GameWorld.h"
+#include "GameObjectFactory.h"
 
-#include "CameraComponet.h"
+#include "CameraComponent.h"
 #include "Component.h"
-#include "FPSCameraComponet.h"
+#include "FPSCameraComponent.h"
 #include "MeshComponent.h"
 #include "TransformComponet.h"
 

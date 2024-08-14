@@ -437,3 +437,8 @@ MeshPX MeshBuilder::CreateScreenQuad()
 
 	return mesh;
 }
+
+Mesh SpringEngine::Graphics::MeshBuilder::CreateSpriteQuad(float width, float height)
+{
+	return Mesh();
+}
