@@ -9,6 +9,7 @@ namespace SpringEngine
 		Camera,                 // Stationary camera information
 		FPSCamera,              // Functionality for a camera to move
 		Mesh,					// Renders a MeshBuilt shape
+		Model,					// For Render a model
 
 		Count
 	};

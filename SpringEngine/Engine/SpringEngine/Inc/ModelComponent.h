@@ -4,16 +4,19 @@
 
 namespace SpringEngine
 {
-	class MeshComponent final : public RenderObjectComponent
+	class ModelComponent final : public RenderObjectComponent
 	{
 	public:
-		SET_TYPE_ID(ComponentId::Mesh);
+		SET_TYPE_ID(ComponentId::Model);
+
+		void Initialize() override;
+		void Terminate() override;
 
 		void Deserialize(const rapidjson::Value& value) override;
 
 		const Graphics::Model& GetModel() const override;
-
 	private:
-		Graphics::Model mModel;
+		std::string mFileName;
+		Graphics::ModelId mModelId;
 	};
 }

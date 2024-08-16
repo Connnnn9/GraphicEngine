@@ -4,7 +4,7 @@
 #include "GameWorld.h"
 
 #include "CameraService.h"
-#include "MeshComponent.h"
+#include "RenderObjectComponent.h"
 #include "TransformComponent.h"
 
 using namespace SpringEngine;
@@ -88,24 +88,24 @@ void RenderService::DebugUI()
 	mShadowEffect.DebugUI();
 }
 
-void RenderService::Register(const MeshComponent* meshComponent)
+void RenderService::Register(const RenderObjectComponent* renderObjectComponent)
 {
 	Entry& entry = mRenderEntries.emplace_back();
 
-	const GameObject& gameObject = meshComponent->GetOwner();
-	entry.renderComponent = meshComponent;
+	const GameObject& gameObject = renderObjectComponent->GetOwner();
+	entry.renderComponent = renderObjectComponent;
 	entry.transformComponent = gameObject.GetComponent<TransformComponent>();
-	entry.castShadow = meshComponent->CanCastShaow();
-	entry.renderGroup = CreateRenderGroup(meshComponent->GetModel());
+	entry.castShadow = renderObjectComponent->CastShadow();
+	entry.renderGroup = CreateRenderGroup(renderObjectComponent->GetModel());
 }
 
-void RenderService::Unregister(const MeshComponent* meshComponent)
+void RenderService::Unregister(const RenderObjectComponent* renderObjectComponent)
 {
 	auto iter = std::find_if(mRenderEntries.begin(),
 		mRenderEntries.end(),
 		[&](const Entry& entry)
 		{
-			return entry.renderComponent == meshComponent;
+			return entry.renderComponent == renderObjectComponent;
 		}
 	);
 	if (iter != mRenderEntries.end())

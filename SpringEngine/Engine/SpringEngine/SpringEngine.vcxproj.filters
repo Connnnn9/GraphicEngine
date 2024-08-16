@@ -102,6 +102,12 @@
     <ClInclude Include="Inc\GameObjectFactory.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\ModelComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\RenderObjectComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -128,9 +134,6 @@
     <ClCompile Include="Src\GameObject.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\TransformComponet.cpp">
-      <Filter>Src\Componets</Filter>
-    </ClCompile>
     <ClCompile Include="Src\CameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
@@ -154,6 +157,15 @@
     </ClCompile>
     <ClCompile Include="Src\RenderService.cpp">
       <Filter>Src\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ModelComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\RenderObjectComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TransformComponent.cpp">
+      <Filter>Src\Componets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

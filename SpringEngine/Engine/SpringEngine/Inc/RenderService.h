@@ -6,7 +6,7 @@ namespace SpringEngine
 {
 	class CameraService;
 	class Component;
-	class MeshComponent;
+	class RenderObjectComponent;
 	class TransformComponent;
 
 	class RenderService final : public Service
@@ -20,8 +20,8 @@ namespace SpringEngine
 		void Render() override;
 		void DebugUI() override;
 
-		void Register(const MeshComponent* meshComponent);
-		void Unregister(const MeshComponent* meshComponent);
+		void Register(const RenderObjectComponent* renderObjectComponent);
+		void Unregister(const RenderObjectComponent* renderObjectComponent);
 	private:
 		const CameraService* mCameraService = nullptr;
 

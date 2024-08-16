@@ -27,8 +27,10 @@ namespace SpringEngine
 		{
 			static_assert(std::is_base_of_v<Component,ComponentType>,
 				"GameObject: ComponentType Must be of type Component");
+
 				ASSERT(!mInitialized, "GameObject: cannot add components once initialized");
 				ASSERT(!HasA<ComponentType>(), "GameObject: already has components type");
+				ASSERT(ComponentType::StaticGetTypeId() != static_cast<uint32_t>(ComponentId::Invalid), "GameObject: invalid component ID");
 
 				auto& newComponent = mComponents.emplace_back(std::make_unique<ComponentType>());
 				newComponent->mOwner = this;

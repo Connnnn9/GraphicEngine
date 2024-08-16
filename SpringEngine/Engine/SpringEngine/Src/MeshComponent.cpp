@@ -1,26 +1,13 @@
 #include "Precompiled.h"
 #include "MeshComponent.h"
 
-#include "GameWorld.h"
-#include "RenderService.h"
-
 using namespace SpringEngine;
 using namespace SpringEngine::Graphics;
 
-void MeshComponent::Initialize()
-{
-	RenderService* renderService = GetOwner().GetWorld().GetService<RenderService>();
-	renderService->Register(this);
-}
-
-void MeshComponent::Terminate()
-{
-	RenderService* renderService = GetOwner().GetWorld().GetService<RenderService>();
-	renderService->Unregister(this);
-}
-
 void MeshComponent::Deserialize(const rapidjson::Value& value)
 {
+	RenderObjectComponent::Deserialize(value);
+
 	Model::MeshData& mesh = mModel.meshData.emplace_back();
 	Model::MaterialData& material = mModel.materialData.emplace_back();
 	if (value.HasMember("Shape"))
@@ -123,15 +110,7 @@ void MeshComponent::Deserialize(const rapidjson::Value& value)
 			material.specularMapName = textureData["SpecMap"].GetString();
 		}
 	}
-	if (value.HasMember("CastShadow"))
-	{
-		mCastShaow = value["CastShadow"].GetBool();
-	}
-}
 
-bool MeshComponent::CanCastShaow() const
-{
-	return false;
 }
 
 const Model& MeshComponent::GetModel() const

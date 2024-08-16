@@ -57,7 +57,7 @@ void ModelManager::AddAnimation(ModelId id, const std::filesystem::path& filepat
 	ModelIO::LoadAnimations(filepath, *model->second);
 }
 
-const Model* ModelManager::GetModel(ModelId id)
+const Model* ModelManager::GetModel(ModelId id) 
 {
 	auto model = mInventory.find(id);
 	if (model != mInventory.end())
