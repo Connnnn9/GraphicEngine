@@ -172,11 +172,12 @@ GameObject* SpringEngine::GameWorld::CreateGameObject(const std::filesystem::pat
 	std::unique_ptr<GameObject>& newObject = slot.gameObject;
 	newObject = std::make_unique<GameObject>();
 	GameObjectFactory::Make(templateFile, *newObject);
+
 	std::string objName = name;
 	newObject->SetName(objName);
 	newObject->mWorld = this;
+	newObject->mHandle.mIndex = freeSlot;
 	newObject->mHandle.mGeneration = slot.generation;
-	//newObject->Initialize();
 
 	return newObject.get();
 }
