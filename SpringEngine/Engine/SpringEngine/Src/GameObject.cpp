@@ -59,3 +59,8 @@ const GameWorld& GameObject::GetWorld() const
 {
 	return *mWorld;
 }
+
+const GameObjectHandle& GameObject::GetHandle() const
+{
+	return mHandle;
+}

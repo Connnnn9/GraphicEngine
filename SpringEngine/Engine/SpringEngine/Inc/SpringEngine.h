@@ -11,9 +11,11 @@
 #include "EventManager.h"
 
 #include "GameObject.h"
+#include "GameObjectHandle.h"
 #include "GameWorld.h"
 #include "GameObjectFactory.h"
 
+#include "AnimatorComponent.h"
 #include "CameraComponent.h"
 #include "Component.h"
 #include "FPSCameraComponent.h"

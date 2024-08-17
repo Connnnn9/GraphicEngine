@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "GameObjectHandle.h"
 
 namespace SpringEngine
 {
@@ -21,6 +22,7 @@ namespace SpringEngine
 
 		GameWorld& GetWorld();
 		const GameWorld& GetWorld() const;
+		const GameObjectHandle& GetHandle() const;
 		
 		template <class ComponentType>
 		ComponentType* AddComponent()
@@ -84,5 +86,6 @@ namespace SpringEngine
 
 		friend class GameWorld;
 		GameWorld* mWorld = nullptr;
+		GameObjectHandle mHandle;
 	};
 }

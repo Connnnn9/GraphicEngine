@@ -7,9 +7,9 @@
     },
     "ModelComponent": {
       "CastShadow": true,
-      "FileName": "../../Assets/Models/Finals/Samba/Samba.model",
+      "FileName": "../../Assets/Models/Finals/Move_1/Move_1.model",
       "Animation": [
-        "../../Assets/Models/Finals/Samba/Samba.animset"
+        "../../Assets/Models/Finals/Move_1/Move_1.animset"
       ]
     },
     "AnimatorComponent": {

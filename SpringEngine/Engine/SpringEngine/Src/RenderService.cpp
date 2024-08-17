@@ -6,6 +6,7 @@
 #include "CameraService.h"
 #include "RenderObjectComponent.h"
 #include "TransformComponent.h"
+#include "AnimatorComponent.h"
 
 using namespace SpringEngine;
 using namespace SpringEngine::Graphics;
@@ -52,13 +53,13 @@ void RenderService::Render()
 
 
 		mShadowEffect.Begin();
-			for (Entry& entry : mRenderEntries)
+		for (Entry& entry : mRenderEntries)
+		{
+			if (entry.castShadow)
 			{
-				if (entry.castShadow)
-				{
-					DrawRenderGroup(mShadowEffect, entry.renderGroup);
-				}
+				DrawRenderGroup(mShadowEffect, entry.renderGroup);
 			}
+		}
 		mShadowEffect.End();
 
 		mStandardEffect.Begin();
@@ -96,7 +97,21 @@ void RenderService::Register(const RenderObjectComponent* renderObjectComponent)
 	entry.renderComponent = renderObjectComponent;
 	entry.transformComponent = gameObject.GetComponent<TransformComponent>();
 	entry.castShadow = renderObjectComponent->CastShadow();
-	entry.renderGroup = CreateRenderGroup(renderObjectComponent->GetModel());
+
+	const Animator* animator = nullptr;
+	const AnimatorComponent* animatorComponent = gameObject.GetComponent<AnimatorComponent>();
+	if (animatorComponent != nullptr)
+	{
+		animator = &animatorComponent->GetAnimator();
+	}
+	if (renderObjectComponent->GetModelId() != 0)
+	{
+		entry.renderGroup = CreateRenderGroup(renderObjectComponent->GetModelId(), animator);
+	}
+	else
+	{
+		entry.renderGroup = CreateRenderGroup(renderObjectComponent->GetModel(), animator);
+	}
 }
 
 void RenderService::Unregister(const RenderObjectComponent* renderObjectComponent)
