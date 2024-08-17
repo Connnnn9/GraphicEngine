@@ -76,6 +76,7 @@ namespace SpringEngine
 			const GameObject* thisConst = static_cast<const GameObject*>(this);
 			return const_cast<ComponentType*>(thisConst->GetComponent<ComponentType>());
 		}
+
 	private:
 		std::string mName = "EMPTY";
 		bool mInitialized = false;

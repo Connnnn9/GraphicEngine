@@ -16,6 +16,8 @@ namespace SpringEngine
 		void Render();
 		void DebugUI();
 
+		void LoadLevel(const std::filesystem::path& levelFile);
+
 		GameObject* CreateGameObject(const std::filesystem::path& templateFile, const std::string& name);
 		GameObject* GetGameObject(const std::string& name);
 		GameObject* GetGameObject(const GameObjectHandle& handle);

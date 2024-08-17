@@ -24,6 +24,7 @@ namespace SpringEngine
 		virtual void Update(float deltaTime) {}
 		virtual void Render() {}
 		virtual void DebugUI() {}
+		virtual void Deserialize(rapidjson::Value& value) {}
 
 		GameWorld& GetWorld() { return *mWorld; };
 		const GameWorld& GetWorld() const{ return *mWorld; };

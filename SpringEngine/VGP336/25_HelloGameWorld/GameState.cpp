@@ -7,15 +7,7 @@ using namespace SpringEngine::Input;
 
 void GameState::Initialize()
 {
-
-	CameraService* cs =  mGameWorld.AddService<CameraService>();
-	mGameWorld.AddService<UpdateService>();
-	mGameWorld.AddService<RenderService>();
-	mGameWorld.Initialize(50);
-
-	mGameWorld.CreateGameObject("../../Assets/Templates/fps_camera.json","Camera");
-	mGameWorld.CreateGameObject("../../Assets/Templates/test_model.json","obj");
-	mGameWorld.CreateGameObject("../../Assets/Templates/test_model2.json","obj2");
+	mGameWorld.LoadLevel("../../Assets/Templates/Level/test_level.json");
 }
 void GameState::Terminate()
 {

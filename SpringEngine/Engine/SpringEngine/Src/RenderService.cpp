@@ -89,6 +89,46 @@ void RenderService::DebugUI()
 	mShadowEffect.DebugUI();
 }
 
+void SpringEngine::RenderService::Deserialize(rapidjson::Value& value)
+{
+	if (value.HasMember("LightDirection"))
+	{
+		auto dir = value["LightDirection"].GetArray();
+		const float x = dir[0].GetFloat();
+		const float y = dir[1].GetFloat();
+		const float z = dir[2].GetFloat();
+		mDirectionalLight.direction = Math::Normalize({ x,y,z });
+	}
+	if (value.HasMember("ColorAmbient"))
+	{
+		auto amb = value["ColorAmbient"].GetArray();
+		const float r = amb[0].GetFloat();
+		const float g = amb[1].GetFloat();
+		const float b = amb[2].GetFloat();
+		const float a = amb[3].GetFloat();
+		mDirectionalLight.ambient = { r,g,b,a };
+	}
+	if (value.HasMember("ColorDiffuse"))
+	{
+		auto Dif = value["ColorDiffuse"].GetArray();
+		const float r = Dif[0].GetFloat();
+		const float g = Dif[1].GetFloat();
+		const float b = Dif[2].GetFloat();
+		const float a = Dif[3].GetFloat();
+		mDirectionalLight.diffuse = { r,g,b,a };
+	}
+	if (value.HasMember("ColorSpecular"))
+	{
+		auto spec = value["ColorSpecular"].GetArray();
+		const float r = spec[0].GetFloat();
+		const float g = spec[1].GetFloat();
+		const float b = spec[2].GetFloat();
+		const float a = spec[3].GetFloat();
+		mDirectionalLight.specular = { r,g,b,a };
+	}
+
+}
+
 void RenderService::Register(const RenderObjectComponent* renderObjectComponent)
 {
 	Entry& entry = mRenderEntries.emplace_back();
