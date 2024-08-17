@@ -118,7 +118,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{1D0EBF64-B7F1-4F9C-AFC1-9BFB02CD7B98}"
 	ProjectSection(SolutionItems) = preProject
 		Assets\Templates\fps_camera.json = Assets\Templates\fps_camera.json
-		Assets\Templates\Level\test_level.json = Assets\Templates\Level\test_level.json
 		Assets\Templates\test_model.json = Assets\Templates\test_model.json
 		Assets\Templates\test_model2.json = Assets\Templates\test_model2.json
 		Assets\Templates\test_object.json = Assets\Templates\test_object.json
@@ -127,6 +126,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "24_HelloGameObjectFactory", "VGP336\24_HelloGameObjectFactory\24_HelloGameObjectFactory.vcxproj", "{EDB21F19-792E-43FF-99D9-2060E4FC3DA6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "25_HelloGameWorld", "VGP336\25_HelloGameWorld\25_HelloGameWorld.vcxproj", "{AAA792C3-9E9B-4D1F-9147-405D69C7EF36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level", "Level", "{CFA23AF9-730D-49CE-9ED3-3129A93F7AEB}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\Templates\Level\test_level.json = Assets\Templates\Level\test_level.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -468,6 +472,7 @@ Global
 		{1D0EBF64-B7F1-4F9C-AFC1-9BFB02CD7B98} = {A0233C06-4343-44EE-9775-06633180C822}
 		{EDB21F19-792E-43FF-99D9-2060E4FC3DA6} = {F427553F-85F6-4438-82BA-146B88A57327}
 		{AAA792C3-9E9B-4D1F-9147-405D69C7EF36} = {F427553F-85F6-4438-82BA-146B88A57327}
+		{CFA23AF9-730D-49CE-9ED3-3129A93F7AEB} = {1D0EBF64-B7F1-4F9C-AFC1-9BFB02CD7B98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D0AC193-6F87-4854-B7B1-0619DF878E8F}

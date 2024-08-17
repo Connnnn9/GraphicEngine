@@ -23,7 +23,7 @@
       }
     },
     "TestObject0": {
-      "Template": "../../Assets/Templates/test_model.json",
+      "Template": "../../Assets/Templates/test_model2.json",
       "TransformComponent": {
         "Position": [ 0.0, 0.0, 0.0 ]
       }
