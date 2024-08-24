@@ -19,15 +19,23 @@ namespace SpringEngine::Physics
 		static void StaticInitialize(const Settings& settings);
 		static void StaticTerminate();
 		static PhysicsWorld* Get();
+
 		PhysicsWorld() = default;
 		~PhysicsWorld();
+
 		void Initialize(const Settings& settings);
 		void Terminate();
+
 		void Update(float deltaTime);
 		void DebugUI();
 
 		void Register(PhysicsObject* physicsObject);
 		void Unregister(PhysicsObject* physicsObject);
+
+		void SetGravity(const Math::Vector3& gravity);
+		void SetSimSteps(uint32_t steps);
+		void SetFixedTimeStep(float timeStep);
+
 	private:
 		Settings mSettings;
 

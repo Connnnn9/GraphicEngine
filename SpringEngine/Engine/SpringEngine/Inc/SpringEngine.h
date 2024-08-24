@@ -15,6 +15,7 @@
 #include "GameWorld.h"
 #include "GameObjectFactory.h"
 
+// components
 #include "AnimatorComponent.h"
 #include "CameraComponent.h"
 #include "Component.h"
@@ -22,12 +23,15 @@
 #include "MeshComponent.h"
 #include "ModelComponent.h"
 #include "RenderObjectComponent.h"
+#include "RigidBodyComponent.h"
 #include "TransformComponent.h"
 
+// services
 #include "Service.h"
 #include "CameraService.h"
 #include "RenderService.h"
 #include "UpdateService.h"
+#include "PhysicsService.h"
 
 namespace SpringEngine
 {

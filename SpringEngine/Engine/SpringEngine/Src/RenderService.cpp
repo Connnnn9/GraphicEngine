@@ -89,7 +89,7 @@ void RenderService::DebugUI()
 	mShadowEffect.DebugUI();
 }
 
-void SpringEngine::RenderService::Deserialize(rapidjson::Value& value)
+void SpringEngine::RenderService::Deserialize(const rapidjson::Value& value)
 {
 	if (value.HasMember("LightDirection"))
 	{

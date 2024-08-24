@@ -62,11 +62,12 @@ void App::Run(const AppConfig& config)
 			mCurrentState = std::exchange(mNextState, nullptr);
 			mCurrentState->Initialize();
 		}
-
+		
 		auto deltaTime = TimeUtil::GetDeltaTime();
 		if (deltaTime < 0.5f)
 		{
-			PhysicsWorld::Get()->Update(deltaTime);
+			//physics now is a service
+			//PhysicsWorld::Get()->Update(deltaTime);
 
 			mCurrentState->Update(deltaTime);
 		}

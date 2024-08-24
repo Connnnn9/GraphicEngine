@@ -18,10 +18,16 @@ namespace
 {
 	using namespace SpringEngine;
 
+	CustomMake TryMake;
+
 	Component* AddComponent(const std::string& componentName, GameObject& gameObject)
 	{
-		Component* component = nullptr;
-		if (componentName == "TransformComponent")
+		Component* component = TryMake(componentName, gameObject);
+		if (component != nullptr)
+		{
+			LOG("Custom component %s was added successfuly", componentName.c_str());
+		}
+		else if (componentName == "TransformComponent")
 		{
 			component = gameObject.AddComponent<TransformComponent>();
 		}
@@ -35,7 +41,7 @@ namespace
 		}
 		else if (componentName == "MeshComponent")
 		{
-			component = gameObject.AddComponent<MeshComponent>(); 
+			component = gameObject.AddComponent<MeshComponent>();
 		}
 		else if (componentName == "ModelComponent")
 		{
@@ -51,6 +57,11 @@ namespace
 		}
 		return component;
 	}
+}
+
+void GameObjectFactory::SetCustomMake(CustomMake custommake)
+{
+	TryMake = custommake;
 }
 
 void GameObjectFactory::Make(const std::filesystem::path& templatePath, GameObject& gameObject)
