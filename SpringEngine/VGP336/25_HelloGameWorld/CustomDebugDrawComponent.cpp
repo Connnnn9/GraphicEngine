@@ -10,6 +10,9 @@ void CustomDebugDrawComponent::Initialize()
 	mTransformComponent = GetOwner().GetComponent<TransformComponent>();
 	CustomDebugDrawDisplayService* displaySevice = GetOwner().GetWorld().GetService<CustomDebugDrawDisplayService>();
 	displaySevice->Register(this);
+
+	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
+	updateService->Register(this);
 }
 
 void CustomDebugDrawComponent::Terminate()
@@ -17,6 +20,35 @@ void CustomDebugDrawComponent::Terminate()
 
 	CustomDebugDrawDisplayService* displaySevice = GetOwner().GetWorld().GetService<CustomDebugDrawDisplayService>();
 	displaySevice->Unregister(this);
+
+	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
+	updateService->UnRegister(this);
+}
+
+void CustomDebugDrawComponent::Update(float deltaTime)
+{
+	RigidBodyComponent* rigidBody = GetOwner().GetComponent<RigidBodyComponent>();
+	if (Input::InputSystem::Get()->IsKeyPressed(Input::KeyCode::SPACE))
+	{
+		SoundBankComponent* soundBank = GetOwner().GetComponent <SoundBankComponent>();
+		if (soundBank != nullptr)
+		{
+			soundBank->Play("");
+		}
+		if (rigidBody != nullptr)
+		{
+			rigidBody->SetVelocity({ 0.0f,10.f,0.0f });
+		}
+	}
+
+	if (Input::InputSystem::Get()->IsKeyDown(Input::KeyCode::UP))
+	{
+		rigidBody->SetVelocity({ 1.0f,0.0f,0.0f });
+	}
+	if (Input::InputSystem::Get()->IsKeyDown(Input::KeyCode::DOWN))
+	{
+		rigidBody->SetVelocity({ -1.0f,0.0f,0.0f });
+	}
 }
 
 void CustomDebugDrawComponent::AddDebugDraw()

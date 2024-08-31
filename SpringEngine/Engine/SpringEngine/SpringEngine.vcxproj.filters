@@ -120,6 +120,12 @@
     <ClInclude Include="Inc\RigidBodyComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\SoundEffectComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SoundBankComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -186,6 +192,12 @@
       <Filter>Src\Services</Filter>
     </ClCompile>
     <ClCompile Include="Src\RigidBodyComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SoundEffectComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SoundBankComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
   </ItemGroup>

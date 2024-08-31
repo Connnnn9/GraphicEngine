@@ -49,20 +49,29 @@ void SoundBankComponent::DebugUI()
 {
 	std::string playButtonTag = "PlaySound##" + GetOwner().GetName();
 	std::string stopButtonTag = "PlaySound##" + GetOwner().GetName();
-	for (auto& data : mSoundEffects)
+	std::string soundEffectHeader = "SoundEffects##" + GetOwner().GetName();
+	ImGui::Indent();
+	if (ImGui::CollapsingHeader(soundEffectHeader.c_str()))
 	{
-		if (ImGui::CollapsingHeader(data.first.c_str()))
+		for (auto& data : mSoundEffects)
 		{
-			if (ImGui::Button(playButtonTag.c_str()))
+			if (ImGui::CollapsingHeader(data.first.c_str()))
 			{
-				Play(data.first);
-			}
-			if (ImGui::Button(stopButtonTag.c_str()))
-			{
-				Stop(data.first);
+				std::string buttonName = data.first + playButtonTag;
+				if (ImGui::Button(buttonName.c_str()))
+				{
+					Play(data.first);
+				}
+				ImGui::SameLine();
+				buttonName = data.first + stopButtonTag;
+				if (ImGui::Button(buttonName.c_str()))
+				{
+					Stop(data.first);
+				}
 			}
 		}
 	}
+	ImGui::Unindent();
 }
 
 void SoundBankComponent::Play(const std::string& key)
