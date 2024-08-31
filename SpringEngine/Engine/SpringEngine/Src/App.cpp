@@ -39,6 +39,8 @@ void App::Run(const AppConfig& config)
 	ModelManager::StaticInitialize();
 	PhysicsWorld::StaticInitialize(physicsSettings);
 	EventManager::StaticInitialize();
+	//AutioSystem::StaticInitialize();
+	//SoundEffectManage::StaticInitialize("../../Assets/Sounds");
 
 	ASSERT(mCurrentState, "App -- no app state found");
 	mCurrentState->Initialize();
@@ -62,7 +64,7 @@ void App::Run(const AppConfig& config)
 			mCurrentState = std::exchange(mNextState, nullptr);
 			mCurrentState->Initialize();
 		}
-		
+		//AudioSystem::Get()->Update();
 		auto deltaTime = TimeUtil::GetDeltaTime();
 		if (deltaTime < 0.5f)
 		{
@@ -82,7 +84,8 @@ void App::Run(const AppConfig& config)
 	}
 
 	mCurrentState->Terminate();
-
+	//SoundEffectManage::StaticTerminate();
+	//AudioSystem::StaticTerminate();
 	EventManager::StaticTerminate();
 	PhysicsWorld::StaticTerminate();
 	ModelManager::StaticTerminate();

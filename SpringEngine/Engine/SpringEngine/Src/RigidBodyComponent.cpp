@@ -26,6 +26,8 @@ void RigidBodyComponent::Terminate()
 	{
 		physicsService->Unregister(this);
 	}
+	mRigidBody.Terminate();
+	mCollisionShape.Terminate();
 }
 
 void RigidBodyComponent::Deserialize(const rapidjson::Value& value)
@@ -34,7 +36,7 @@ void RigidBodyComponent::Deserialize(const rapidjson::Value& value)
 	{
 		mMass = value["Mass"].GetFloat();
 	}
-	if (value.HasMember("ColliderShape"))
+	if (value.HasMember("ColliderData"))
 	{
 		auto colliderData = value["ColliderData"].GetObj();
 		if (colliderData.HasMember("Shape"))
@@ -76,15 +78,22 @@ void RigidBodyComponent::Deserialize(const rapidjson::Value& value)
 		}
 		else
 		{
-			ASSERT(false, "RigidBodyComponent: must have colliderShapeData");
+			ASSERT(false, "RigidBodyComponent: Collision must have valid shape data");
 		}
+
+	}
+	else
+	{
+		ASSERT(false, "RigidBodyComponent: must have ColliderData");
 	}
 }
 
 void RigidBodyComponent::SetPosition(const Math::Vector3& position)
 {
+	mRigidBody.SetPosition(position);
 }
 
 void RigidBodyComponent::SetVelocity(const Math::Vector3& velocity)
 {
+	mRigidBody.SetVelocity(velocity);
 }

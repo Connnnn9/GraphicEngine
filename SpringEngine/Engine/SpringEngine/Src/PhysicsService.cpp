@@ -1,6 +1,7 @@
 #include "Precompiled.h"
 #include "PhysicsService.h"
 
+#include "RigidBodyComponent.h"
 using namespace SpringEngine;
 using namespace SpringEngine::Physics;
 
@@ -44,11 +45,12 @@ void PhysicsService::Deserialize(const rapidjson::Value& value)
 
 void PhysicsService::Register(RigidBodyComponent* rigidBodyComponent)
 {
-
+	PhysicsWorld::Get()->Register(&rigidBodyComponent->mRigidBody);
 }
 
 void PhysicsService::Unregister(RigidBodyComponent* rigidBodyComponent)
 {
+	PhysicsWorld::Get()->Unregister(&rigidBodyComponent->mRigidBody);
 }
 
 void PhysicsService::SetEnabled(bool enabled)

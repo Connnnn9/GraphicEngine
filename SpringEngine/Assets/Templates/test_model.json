@@ -16,11 +16,29 @@
       "StartPlayIndex": 0
     },
     "CustomDebugDrawComponent": {
-			"Slices": 30,
-			"Rings": 30,
-			"Radius": 1.0,
-			"Position": [ 0.0, 0.5, 0.0 ],
-			"Color": [1.0,1.0,0.0,1.0]
+      "Slices": 10,
+      "Rings": 10,
+      "Radius": 1.0,
+      "Position": [ 0.0, 2.0, 0.0 ],
+      "Color": [ 1.0, 1.0, 0.0, 1.0 ]
+    },
+    "RigidBodyComponent": {
+      "Mass": 10.0,
+      "ColliderData": {
+        "Shape": "Hull",
+        "HalfExtents": [ 0.4, 1.0, 0.2 ],
+        "Origin": [ 0.0, 1.0, 0.0 ]
+      }
+    },
+    "SoundBankComponent": {
+      "SoundEffect": {
+        "Explosion": {
+          "FileName": "explosion.wav"
+        },
+        "Gun": {
+          "FileName": "photongun1.wav"
+        }
+      }
     }
   }
 }

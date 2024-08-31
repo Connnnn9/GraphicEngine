@@ -12,6 +12,8 @@ namespace SpringEngine
 		Model,					// For Render a model
 		Animator,               // Controls a Model's animation
 		RigidBody,				// Adds a rigidbody to the world
+		SoundEffect,            // adds a single sound effect to an object
+		SoundBank,              // adds an array of sound effect to an object that can be triggered
 
 		Count
 	};

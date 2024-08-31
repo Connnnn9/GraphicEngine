@@ -23,6 +23,7 @@ namespace SpringEngine
 
 		void Register(const RenderObjectComponent* renderObjectComponent);
 		void Unregister(const RenderObjectComponent* renderObjectComponent);
+
 	private:
 		const CameraService* mCameraService = nullptr;
 

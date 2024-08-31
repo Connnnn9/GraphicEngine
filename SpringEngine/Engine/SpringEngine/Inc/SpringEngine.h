@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "App.h"
 #include "AppState.h"
+
 #include "Particle.h"
 #include "ParticleSystem.h"
 #include "FireworkParticleSystem.h"
@@ -16,14 +17,15 @@
 #include "GameObjectFactory.h"
 
 // components
+#include "Component.h"
 #include "AnimatorComponent.h"
 #include "CameraComponent.h"
-#include "Component.h"
 #include "FPSCameraComponent.h"
 #include "MeshComponent.h"
 #include "ModelComponent.h"
 #include "RenderObjectComponent.h"
-#include "RigidBodyComponent.h"
+#include "SoundBankComponent.h"
+#include "SoundEffectComponent.h"
 #include "TransformComponent.h"
 
 // services

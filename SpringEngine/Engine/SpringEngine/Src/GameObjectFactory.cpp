@@ -10,6 +10,9 @@
 #include "MeshComponent.h"
 #include "ModelComponent.h"
 #include "AnimatorComponent.h"
+#include "RigidBodyComponent.h"
+#include "SoundBankComponent.h"
+#include "SoundEffectComponent.h"
 
 using namespace SpringEngine;
 namespace rj = rapidjson;
@@ -50,6 +53,18 @@ namespace
 		else if (componentName == "AnimatorComponent")
 		{
 			component = gameObject.AddComponent<AnimatorComponent>();
+		}
+		else if (componentName == "RigidBodyComponent")
+		{
+			component = gameObject.AddComponent<RigidBodyComponent>();
+		}
+		else if (componentName == "SoundBankComponent")
+		{
+			component = gameObject.AddComponent<SoundBankComponent>();
+		}
+		else if (componentName == "SoundEffectComponent")
+		{
+			component = gameObject.AddComponent<SoundEffectComponent>();
 		}
 		else
 		{
