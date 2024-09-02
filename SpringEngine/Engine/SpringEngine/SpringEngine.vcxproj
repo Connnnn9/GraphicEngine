@@ -206,6 +206,9 @@
     <ClCompile Include="Src\UpdateService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Audio\Audio.vcxproj">
+      <Project>{baac9afb-b695-4c72-935d-dc52d14e1b37}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\Framework\Core\Core.vcxproj">
       <Project>{8f4b88b4-5e01-41ec-b493-c849695e3bea}</Project>
     </ProjectReference>

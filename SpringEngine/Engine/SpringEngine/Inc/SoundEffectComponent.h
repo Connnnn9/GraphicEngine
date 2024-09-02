@@ -20,6 +20,6 @@ namespace SpringEngine
 	private:
 		std::string mFileName;
 		bool mLooping = false;
-		//Audio::SoundId mSoundId;
+		Audio::SoundId mSoundId;
 	};
 }

@@ -4,7 +4,7 @@
 #include "GameObject.h"
 
 using namespace SpringEngine;
-//using namespace SpringEngine::Audio;
+using namespace SpringEngine::Audio;
 
 void SoundBankComponent::Initialize()
 {

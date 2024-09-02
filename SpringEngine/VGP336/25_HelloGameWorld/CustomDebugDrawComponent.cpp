@@ -33,7 +33,7 @@ void CustomDebugDrawComponent::Update(float deltaTime)
 		SoundBankComponent* soundBank = GetOwner().GetComponent <SoundBankComponent>();
 		if (soundBank != nullptr)
 		{
-			soundBank->Play("");
+			soundBank->Play("Gun");
 		}
 		if (rigidBody != nullptr)
 		{

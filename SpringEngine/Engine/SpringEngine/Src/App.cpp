@@ -8,6 +8,7 @@ using namespace SpringEngine::Core;
 using namespace SpringEngine::Graphics;
 using namespace SpringEngine::Input;
 using namespace SpringEngine::Physics;
+using namespace SpringEngine::Audio;
 
 void App::ChangeState(const std::string& stateName)
 {
@@ -39,8 +40,8 @@ void App::Run(const AppConfig& config)
 	ModelManager::StaticInitialize();
 	PhysicsWorld::StaticInitialize(physicsSettings);
 	EventManager::StaticInitialize();
-	//AutioSystem::StaticInitialize();
-	//SoundEffectManage::StaticInitialize("../../Assets/Sounds");
+	AudioSystem::StaticInitialize();
+	SoundEffectManager::StaticInitialize("../../Assets/Sounds");
 
 	ASSERT(mCurrentState, "App -- no app state found");
 	mCurrentState->Initialize();
@@ -64,7 +65,7 @@ void App::Run(const AppConfig& config)
 			mCurrentState = std::exchange(mNextState, nullptr);
 			mCurrentState->Initialize();
 		}
-		//AudioSystem::Get()->Update();
+		AudioSystem::Get()->Update();
 		auto deltaTime = TimeUtil::GetDeltaTime();
 		if (deltaTime < 0.5f)
 		{
@@ -84,8 +85,8 @@ void App::Run(const AppConfig& config)
 	}
 
 	mCurrentState->Terminate();
-	//SoundEffectManage::StaticTerminate();
-	//AudioSystem::StaticTerminate();
+	SoundEffectManager::StaticTerminate();
+	AudioSystem::StaticTerminate();
 	EventManager::StaticTerminate();
 	PhysicsWorld::StaticTerminate();
 	ModelManager::StaticTerminate();

@@ -1,19 +1,20 @@
 #include "Precompiled.h"
 #include "SoundEffectComponent.h"
 
+#include "GameObject.h"
 
 using namespace SpringEngine;
-//using namespace SpringEngine::Audio;
+using namespace SpringEngine::Audio;
 
 void SoundEffectComponent::Initialize()
 {
 	ASSERT(!mFileName.empty(), "SoundEffectComponent: no sound file loaded");
-	//* mSoundId = SoundEffectManager::Get()->Load(mFileName);
+	mSoundId = SoundEffectManager::Get()->Load(mFileName);
 }
 
 void SoundEffectComponent::Terminate()
 {
-	//* SoundEffectManager::Get()->Stop(mSoundId);
+	SoundEffectManager::Get()->Stop(mSoundId);
 }
 
 void SoundEffectComponent::Deserialize(const rapidjson::Value& value)
