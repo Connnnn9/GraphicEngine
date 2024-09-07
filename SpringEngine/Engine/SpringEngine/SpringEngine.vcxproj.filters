@@ -126,6 +126,18 @@
     <ClInclude Include="Inc\SoundBankComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\UIButtonComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UIComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UIRenderService.h">
+      <Filter>Inc\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UISpriteComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -198,6 +210,9 @@
       <Filter>Src\Componets</Filter>
     </ClCompile>
     <ClCompile Include="Src\SoundBankComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UIButtonComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
   </ItemGroup>

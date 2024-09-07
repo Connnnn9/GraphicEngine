@@ -32,10 +32,15 @@ namespace SpringEngine::Graphics
 		void BindPS(uint32_t slot) const;
 
 		void* GetRawData() const { return mShaderResourceView; }
+		ID3D11ShaderResourceView* GetShaderResourceView() const { return mShaderResourceView; }
+		uint32_t GetWidth() const { return mWidth; }
+		uint32_t GetHeight() const { return mHeight; }
 
 	protected:
 		DXGI_FORMAT GetDXGIFormat(Format format);
 
 		ID3D11ShaderResourceView* mShaderResourceView = nullptr;
+		uint32_t mWidth = 0;
+		uint32_t mHeight = 0;
 	};
 }

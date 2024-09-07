@@ -38,5 +38,7 @@
 #include "Texture.h"
 #include "TextureManager.h"
 #include "Transform.h"
+#include "UISprite.h"
+#include "UISpriteRenderer.h"
 #include "VertexShader.h"
 #include "VertexTypes.h"

@@ -14,6 +14,8 @@ namespace SpringEngine
 		RigidBody,				// Adds a rigidbody to the world
 		SoundEffect,            // adds a single sound effect to an object
 		SoundBank,              // adds an array of sound effect to an object that can be triggered
+		UISprite,               // adds a sprite to the UI
+		UIButton,               // adds a button to the UI
 
 		Count
 	};
@@ -25,6 +27,7 @@ namespace SpringEngine
 		Update,				   // Registers and updates any component that requires an update
 		Render,                // Registers and renders any graphical components
 		Physics,               // Registers and updates physics based on object
+		UIRender,              // Registers and renders UI components
 
 		Count
 	};

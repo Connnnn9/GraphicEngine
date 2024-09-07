@@ -59,6 +59,9 @@ void RenderTarget::Initialize(uint32_t width, uint32_t height, Format format)
 	mViewport.Height = static_cast<float>(height);
 	mViewport.MinDepth = 0.0f;
 	mViewport.MaxDepth = 1.0f;
+
+	mWidth = width;
+	mHeight = height;
 }
 
 void RenderTarget::Terminate()
@@ -90,4 +93,6 @@ void RenderTarget::EndRender()
 	auto context = GraphicsSystem::Get()->GetContext();
 	context->OMSetRenderTargets(1, &mOldRenderTargetView, mOldDepthStencilView);
 	context->RSSetViewports(1, &mOldViewport);
+	SafeRelease(mOldRenderTargetView);
+	SafeRelease(mOldDepthStencilView);
 }

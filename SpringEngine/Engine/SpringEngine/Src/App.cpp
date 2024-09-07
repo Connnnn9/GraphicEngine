@@ -42,6 +42,7 @@ void App::Run(const AppConfig& config)
 	EventManager::StaticInitialize();
 	AudioSystem::StaticInitialize();
 	SoundEffectManager::StaticInitialize("../../Assets/Sounds");
+	UISpriteRenderer::StaticInitialize();
 
 	ASSERT(mCurrentState, "App -- no app state found");
 	mCurrentState->Initialize();
@@ -85,6 +86,8 @@ void App::Run(const AppConfig& config)
 	}
 
 	mCurrentState->Terminate();
+
+	UISpriteRenderer::StaticTerminate();
 	SoundEffectManager::StaticTerminate();
 	AudioSystem::StaticTerminate();
 	EventManager::StaticTerminate();
