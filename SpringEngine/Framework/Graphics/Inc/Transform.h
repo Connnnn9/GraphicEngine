@@ -17,6 +17,7 @@ namespace SpringEngine::Graphics
 				Math::Matrix4::Scaling(scale) *
 				Math::Matrix4::MatrixRotationQuaternion(rotation) *
 				Math::Matrix4::Translation(position)
+				
 			};
 		}
 	};

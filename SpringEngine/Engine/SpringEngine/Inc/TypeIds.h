@@ -12,10 +12,13 @@ namespace SpringEngine
 		Model,					// For Render a model
 		Animator,               // Controls a Model's animation
 		RigidBody,				// Adds a rigidbody to the world
-		SoundEffect,            // adds a single sound effect to an object
-		SoundBank,              // adds an array of sound effect to an object that can be triggered
-		UISprite,               // adds a sprite to the UI
-		UIButton,               // adds a button to the UI
+		SoundEffect,            // Adds a single sound effect to an object
+		SoundBank,              // Adds an array of sound effect to an object that can be triggered
+		UISprite,               // Adds a sprite to the UI
+		UIButton,               // Adds a button to the UI
+		FirstPersonCamera,      // First person camera follows player
+		ThirdPersonCamera,      // Third person camera follows player
+		PlayerController,       // Controls the player movement
 
 		Count
 	};
@@ -28,6 +31,7 @@ namespace SpringEngine
 		Render,                // Registers and renders any graphical components
 		Physics,               // Registers and updates physics based on object
 		UIRender,              // Registers and renders UI components
+		PlayerController,      // Registers and manage player movement and different cams
 
 		Count
 	};

@@ -174,7 +174,7 @@ void GameState::UpdateCameraControl(float deltaTime)
 		mCamera.Pitch(input->GetMouseMoveY() * turnSpeed * deltaTime);
 	}
 	float characterHeight = 3.0f;
-Math:Vector3 cameraPos = mCamera.GetPosition();
+	Math:Vector3 cameraPos = mCamera.GetPosition();
 	cameraPos.y = mTerrain.GetHeight(cameraPos) + characterHeight;
 	mCamera.SetPosition(cameraPos);
 }

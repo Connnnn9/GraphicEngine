@@ -31,5 +31,22 @@ namespace SpringEngine::Math
 		constexpr Vector3& operator-=(const Vector3& v) { x -= v.x; y -= v.y; z -= v.z; return *this; }
 		constexpr Vector3& operator*=(float s) { x *= s; y *= s, z *= s; return *this; }
 		constexpr Vector3& operator/=(float s) { x /= s; y /= s, z /= s; return *this; }
+
+		constexpr static Vector3 Cross(const Vector3& v1, const Vector3& v2)
+		{
+			return Vector3(
+				(v1.y * v2.z) - (v1.z * v2.y),
+				(v1.z * v2.x) - (v1.x * v2.z),
+				(v1.x * v2.y) - (v1.y * v2.x)
+			);
+		}
+		constexpr static Vector3 Normalize(const Vector3& v)
+		{
+			float lengthSquared = v.x * v.x + v.y * v.y + v.z * v.z;
+			if (lengthSquared == 0.0f)
+				return Vector3::Zero;
+			float invLength = 1.0f / std::sqrt(lengthSquared);
+			return v * invLength;
+		}
 	};
 }

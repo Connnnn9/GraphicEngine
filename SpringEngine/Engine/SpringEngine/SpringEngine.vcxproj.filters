@@ -138,6 +138,18 @@
     <ClInclude Include="Inc\UISpriteComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\FirstPersonCameraComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\PlayerControllerComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\PlayerControllerService.h">
+      <Filter>Inc\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ThirdPersonCameraComponent.h">
+      <Filter>Inc\Componets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -213,6 +225,18 @@
       <Filter>Src\Componets</Filter>
     </ClCompile>
     <ClCompile Include="Src\UIButtonComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\FirstPersonCamera.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\PlayerControllerComponent.cpp">
+      <Filter>Src\Componets</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\PlayerControllerService.cpp">
+      <Filter>Src\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ThirdPersonCameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
   </ItemGroup>
