@@ -5,10 +5,13 @@
 #include "CameraService.h"
 #include "RenderService.h"
 #include "UpdateService.h"
+#include "UIRenderService.h"
 #include "PhysicsService.h"
 
 #include "TransformComponent.h"
 #include "CameraComponent.h"
+#include "UISpriteComponent.h"
+#include "UIButtonComponent.h"
 
 using namespace SpringEngine;
 
@@ -142,6 +145,10 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 		{
 			newService = AddService<PhysicsService>();
 		}
+		else if (serviceName == "UIRenderService")
+		{
+			newService = AddService<UIRenderService>();
+		}
 		else
 		{
 			ASSERT(false, "GameObject: service %s is not defined", serviceName.c_str());
@@ -166,6 +173,22 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 				if (transformComponent != nullptr)
 				{
 					transformComponent->Deserialize(gameObject.value["TransformComponent"].GetObj());
+				}
+			}
+			if (gameObject.value.HasMember("UISpriteComponent"))
+			{
+				UISpriteComponent* uiSpriteComponent = obj->GetComponent<UISpriteComponent>();
+				if (uiSpriteComponent != nullptr)
+				{
+					uiSpriteComponent->Deserialize(gameObject.value["UISpriteComponent"].GetObj());
+				}
+			}
+			if (gameObject.value.HasMember("UIButtonComponent"))
+			{
+				UIButtonComponent* uiButtonComponent = obj->GetComponent<UIButtonComponent>();
+				if (uiButtonComponent != nullptr)
+				{
+					uiButtonComponent->Deserialize(gameObject.value["UIButtonComponent"].GetObj());
 				}
 			}
 			if (gameObject.value.HasMember("CameraComponent"))
@@ -237,6 +260,7 @@ void GameWorld::DestoryGameObject(const GameObjectHandle& handle)
 	{
 		return;
 	}
+
 	Slot& slot = mGameObjectSlots[handle.mIndex];
 	slot.generation++;
 	mToBeDestroyed.push_back(handle.mIndex);

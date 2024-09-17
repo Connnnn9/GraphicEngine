@@ -13,7 +13,7 @@ void UISprite::Initialize(const std::filesystem::path& filePath)
 	TextureManager* tm = TextureManager::Get();
 	mTextureId = tm->LoadTexture(filePath);
 	const Texture* texture = tm->GetTexture(mTextureId);
-	ASSERT(texture != nullptr, "UISprite: texture [%s] was not found", filePath.c_str());
+	ASSERT(texture != nullptr, "UISprite: texture [%s] was not found", filePath.u8string().c_str());
 	SetRect(0, 0, texture->GetWidth(), texture->GetHeight());
 }
 
@@ -67,6 +67,11 @@ void UISprite::SetColor(const Color& color)
 	mColor.m128_f32[2] = color.b;
 	mColor.m128_f32[3] = color.a;
 
+}
+
+void UISprite::SetRotation(float rotation)
+{
+	mRotation = rotation;
 }
 
 void UISprite::UpdateOrigin()

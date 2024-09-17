@@ -39,6 +39,11 @@ namespace SpringEngine::Graphics
 		void SetPivot(Pivot pivot);
 		void SetFlip(Flip flip);
 		void SetColor(const Color& color);
+		void SetRotation(float rotation);
+
+		const DirectX::XMFLOAT2& GetPosition() { return mPosition; }
+		const RECT& GetRect() { return mRect; }
+
 	private:
 		void UpdateOrigin();
 

@@ -13,6 +13,8 @@
 #include "RigidBodyComponent.h"
 #include "SoundBankComponent.h"
 #include "SoundEffectComponent.h"
+#include "UIButtonComponent.h"
+#include "UISpriteComponent.h"
 
 using namespace SpringEngine;
 namespace rj = rapidjson;
@@ -65,6 +67,14 @@ namespace
 		else if (componentName == "SoundEffectComponent")
 		{
 			component = gameObject.AddComponent<SoundEffectComponent>();
+		}
+		else if (componentName == "UISpriteComponent")
+		{
+			component = gameObject.AddComponent<UISpriteComponent>();
+		}
+		else if (componentName == "UIButtonComponent")
+		{
+			component = gameObject.AddComponent<UIButtonComponent>();
 		}
 		else
 		{
