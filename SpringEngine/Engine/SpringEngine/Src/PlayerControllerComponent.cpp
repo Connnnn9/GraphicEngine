@@ -23,35 +23,26 @@ void PlayerControllerComponent::Update(float deltaTime)
 {
     InputSystem* input = InputSystem::Get();
 
-    const Vector3& cameraForward = Vector3::Normalize(mCamera->GetDirection());  
-
-    Vector3 cameraRight = Vector3::Normalize(Vector3::Cross(Vector3::YAxis, cameraForward)); 
 
     Vector3 movement = Vector3::Zero;
 
-    if (input->IsKeyDown(KeyCode::W))  
+    if (input->IsKeyDown(KeyCode::W))
     {
-        movement += cameraForward * mMoveSpeed * deltaTime;
+        movement.z += mMoveSpeed * deltaTime;
     }
-    if (input->IsKeyDown(KeyCode::S))  
+    if (input->IsKeyDown(KeyCode::S))
     {
-        movement -= cameraForward * mMoveSpeed * deltaTime;
+        movement.z -= mMoveSpeed * deltaTime;
     }
-
     if (input->IsKeyDown(KeyCode::A))  
     {
-        movement -= cameraRight * mMoveSpeed * deltaTime;
+        movement.x -= mMoveSpeed * deltaTime;
     }
     if (input->IsKeyDown(KeyCode::D))  
     {
-        movement += cameraRight * mMoveSpeed * deltaTime;
+        movement.x += mMoveSpeed * deltaTime;
     }
     mTransformComponent->position += movement;
-
-    if (input->IsKeyPressed(KeyCode::V))
-    {
-        SwitchCameraView();
-    }
 }
 
 void PlayerControllerComponent::Deserialize(const rapidjson::Value& value)

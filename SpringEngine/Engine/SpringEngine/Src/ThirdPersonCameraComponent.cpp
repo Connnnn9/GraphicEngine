@@ -4,6 +4,7 @@
 #include "GameObject.h"
 using namespace SpringEngine;
 using namespace SpringEngine::Math;
+using namespace SpringEngine::Input;
 
 void ThirdPersonCameraComponent::Initialize()
 {
@@ -16,8 +17,15 @@ void ThirdPersonCameraComponent::Initialize()
 
 void ThirdPersonCameraComponent::Update(float deltaTime)
 {
+    InputSystem* input = InputSystem::Get();
+
+    float mouseDeltaX = input->GetMouseMoveX();
+    float yawRadians = mouseDeltaX * mYawSensitivity * deltaTime;
+
+    mCameraComponent->GetCamera().Yaw(yawRadians);
+
     Vector3 cameraPosition = mPlayerTransform->position;
-    Vector3 forward = mPlayerTransform->GetForward();
+    Vector3 forward = mCameraComponent->GetCamera().GetDirection(); 
 
     cameraPosition -= forward * mDistance;
     cameraPosition.y += mHeightOffset;

@@ -1,6 +1,7 @@
 #include "Precompiled.h"
 #include "PlayerControllerComponent.h"
 #include "PlayerControllerService.h"
+#include "CameraService.h"
 
 #include "GameWorld.h"
 #include "GameObject.h"
@@ -37,12 +38,12 @@ void PlayerControllerService::SwitchCameraView()
 {
 	if (mIsFirstPerson)
 	{
-		mCameraService->SwitchToThirdPerson();
+		//mCameraService->SwitchToThirdPerson();
 		mIsFirstPerson = false;
 	}
 	else
 	{
-		mCameraService->SwitchToFirstPerson();
+		//mCameraService->SwitchToFirstPerson();
 		mIsFirstPerson = true;
 	}
 }

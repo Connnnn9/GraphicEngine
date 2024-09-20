@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Component.h"
-#include "FirstPersonCameraComponent.h"
-//#include "ThirdPersonCameraComponent.h"
 #include "TransformComponent.h"
 #include "GameObject.h"
 
@@ -20,13 +18,8 @@ namespace SpringEngine
         void Update(float deltaTime) override;
         void Deserialize(const rapidjson::Value& value) override;
 
-        void SwitchCameraView();
-
     private:
-        const Graphics::Camera* mCamera = nullptr;
         TransformComponent* mTransformComponent = nullptr;
-        bool mIsFirstPerson = true;
-
-        float mMoveSpeed = 5.0f;  // Movement speed
-    };
+        float mMoveSpeed = 5.0f;
+    };;
 }

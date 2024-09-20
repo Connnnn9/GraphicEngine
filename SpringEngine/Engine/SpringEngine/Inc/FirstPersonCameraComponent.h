@@ -18,8 +18,9 @@ namespace SpringEngine
         void Update(float deltaTime) override;
 
     private:
-        CameraComponent* mCameraComponent = nullptr;  
-        const TransformComponent* mPlayerTransform = nullptr; 
+        CameraComponent* mCameraComponent = nullptr;
+        TransformComponent* mPlayerTransform = nullptr;
         float mHeightOffset = 1.8f;
+        float mYawSensitivity = 0.1f;
     };
 }
