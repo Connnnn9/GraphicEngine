@@ -34,8 +34,8 @@ void PlayerControllerComponent::Update(float deltaTime)
 {
     InputSystem* input = InputSystem::Get();
 
-    TransformComponent* transformComponent = GetOwner().GetComponent<TransformComponent>();
-    ASSERT(transformComponent != nullptr, "PlayerControllerComponent: Player requires a TransformComponent.");
+    mTransformComponent = GetOwner().GetComponent<TransformComponent>();
+    ASSERT(mTransformComponent != nullptr, "PlayerControllerComponent: Player requires a TransformComponent.");
 
     Vector3 moveDirection = Vector3::Zero;
 
@@ -61,9 +61,9 @@ void PlayerControllerComponent::Update(float deltaTime)
         moveDirection = Math::Normalize(moveDirection);
     }
 
-    Vector3 newPosition = transformComponent->position + (moveDirection * mMoveSpeed * deltaTime);
+    mTransformComponent->position += (moveDirection * mMoveSpeed * deltaTime);
 
-    transformComponent->position = newPosition;
+    //mTransformComponent->position = newPosition;
 }
 
 void PlayerControllerComponent::Deserialize(const rapidjson::Value& value)
