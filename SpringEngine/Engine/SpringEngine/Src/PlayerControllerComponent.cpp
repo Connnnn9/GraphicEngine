@@ -34,16 +34,14 @@ void PlayerControllerComponent::Update(float deltaTime)
 {
     InputSystem* input = InputSystem::Get();
 
-    // Get the player's transform component
     TransformComponent* transformComponent = GetOwner().GetComponent<TransformComponent>();
     ASSERT(transformComponent != nullptr, "PlayerControllerComponent: Player requires a TransformComponent.");
 
     Vector3 moveDirection = Vector3::Zero;
 
-    // Process input for movement (WASD or arrow keys)
-    if (input->IsKeyDown(KeyCode::W)) // Forward
+    if (input->IsKeyDown(KeyCode::W)) 
     {
-        moveDirection += Vector3::Forward; // World forward (0, 0, -1)
+        moveDirection += Vector3::Forward;
     }
     if (input->IsKeyDown(KeyCode::S))
     {
