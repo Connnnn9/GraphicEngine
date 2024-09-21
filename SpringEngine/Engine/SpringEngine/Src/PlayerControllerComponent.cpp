@@ -31,6 +31,7 @@ void PlayerControllerComponent::Terminate()
 	ASSERT(updateService != nullptr, "PlayerControllerComponent: Game world requires an update service.");
 	updateService->UnRegister(this);
 
+    mRigidBodyComponent = nullptr;
 	mTransformComponent = nullptr;
 }
 

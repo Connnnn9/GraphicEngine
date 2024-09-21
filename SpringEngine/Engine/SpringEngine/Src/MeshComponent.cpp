@@ -125,5 +125,4 @@ void MeshComponent::UpdateTransform(const Math::Vector3& newPosition)
 
 	mTransformMatrix = Math::Matrix4::Translation(newPosition);
 
-	LOG("MeshComponent: Updated position to %f, %f, %f", newPosition.x, newPosition.y, newPosition.z);
 }

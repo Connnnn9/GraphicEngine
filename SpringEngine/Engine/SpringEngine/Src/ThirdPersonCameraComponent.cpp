@@ -49,14 +49,14 @@ void ThirdPersonCameraComponent::Update(float deltaTime)
 	float yawRadians = mouseDeltaX * mYawSensitivity * deltaTime;
 	mYaw += yawRadians;
 
-	if (input->IsKeyDown(KeyCode::LCONTROL)) 
-	{
-		float mouseDeltaY = input->GetMouseMoveY();
-		mPitch -= mouseDeltaY * mPitchSensitivity * deltaTime;
-
-		if (mPitch < mMinPitch) mPitch = mMinPitch;
-		if (mPitch > mMaxPitch) mPitch = mMaxPitch;
-	}
+	//if (input->IsKeyDown(KeyCode::LCONTROL)) 
+	//{
+	//	float mouseDeltaY = input->GetMouseMoveY();
+	//	mPitch -= mouseDeltaY * mPitchSensitivity * deltaTime;
+	//
+	//	if (mPitch < mMinPitch) mPitch = mMinPitch;
+	//	if (mPitch > mMaxPitch) mPitch = mMaxPitch;
+	//}
 
 	Quaternion rotation = Quaternion::CreateFromYawPitchRoll(mYaw, mPitch, 0.0f);
 
