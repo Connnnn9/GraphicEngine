@@ -70,6 +70,8 @@ void ThirdPersonCameraComponent::Update(float deltaTime)
 
 	mCameraComponent->GetCamera().SetPosition(cameraPosition);
 	mCameraComponent->GetCamera().SetLookAt(mPlayerTransform->position);
+	LOG("Player Position: X=%f, Y=%f, Z=%f", mPlayerTransform->position.x, mPlayerTransform->position.y, mPlayerTransform->position.z);
+	LOG("Camera Position: X=%f, Y=%f, Z=%f", cameraPosition.x, cameraPosition.y, cameraPosition.z);
 }
 
 void ThirdPersonCameraComponent::DebugUI()

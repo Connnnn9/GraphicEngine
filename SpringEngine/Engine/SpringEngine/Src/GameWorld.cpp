@@ -109,6 +109,7 @@ void GameWorld::DebugUI()
 	}
 }
 
+
 void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 {
 	FILE* file = nullptr;
@@ -160,20 +161,6 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 	}
 	uint32_t capacity = static_cast<uint32_t>(doc["Capacity"].GetInt());
 	Initialize(capacity);
-
-	if (doc["GameObjects"].HasMember("TestObject1"))
-	{
-		const char* playerTemplate = doc["GameObjects"]["TestObject1"]["Template"].GetString();
-		GameObject* player = CreateGameObject(playerTemplate, "TestObject1");
-		LOG("Creating Player: TestObject1");
-		ASSERT(player != nullptr, "GameWorld: Failed to create player (TestObject1).");
-
-		if (player != nullptr)
-		{
-			player->Initialize();
-		}
-	}
-
 
 	auto gameobjects = doc["GameObjects"].GetObj();
 	for (auto& gameObject : gameobjects)
@@ -233,6 +220,11 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 				{
 					cameraComponent->Deserialize(gameObject.value["CameraComponent"].GetObj());
 				}
+			}
+			if (doc["GameObjects"].HasMember("TestObject1"))
+			{
+				const char* playerTemplate = doc["GameObjects"]["TestObject1"]["Template"].GetString();
+				GameObject* player = CreateGameObject(playerTemplate, "TestObject1");
 			}
 			obj->Initialize();
 		}

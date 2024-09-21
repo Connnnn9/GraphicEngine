@@ -17,7 +17,7 @@
 
     },
     "PhysicsService": {
-      "Gravity": [ 0.0, -9.81, 0.0 ]
+      "Gravity": [ 0.0, -9.8, 0.0 ]
     }
   },
   "GameObjects": {
@@ -46,9 +46,9 @@
       "Template": "../../Assets/Templates/ground.json"
     },
     "TestObject1": {
-      "Template": "../../Assets/Templates/test_model.json",
+      "Template": "../../Assets/Templates/PlayerObject_for_final.json",
       "TransformComponent": {
-        "Position": [ 2.0, 6.0, 0.0 ]
+        "Position": [ 0.0, 0.0, 0.0 ]
       }
     }
   }

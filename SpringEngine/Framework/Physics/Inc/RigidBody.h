@@ -23,6 +23,8 @@ namespace SpringEngine::Physics
 		void SetVelocity(const SpringEngine::Math::Vector3& velocity);
 
 		bool IsDynamic() const;
+
+
 	protected:
 		void Update() override;
 		btRigidBody* GetRigidBody() override;

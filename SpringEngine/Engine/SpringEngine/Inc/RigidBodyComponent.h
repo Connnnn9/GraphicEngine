@@ -15,6 +15,7 @@ namespace SpringEngine
 
 		void SetPosition(const Math::Vector3& position);
 		void SetVelocity(const Math::Vector3& velocity);
+
 	private:
 		friend class PhysicsService;
 		Physics::CollisionShape mCollisionShape;

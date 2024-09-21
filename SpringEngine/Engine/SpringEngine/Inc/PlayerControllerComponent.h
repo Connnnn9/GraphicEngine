@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "TransformComponent.h"
+#include "RigidBodyComponent.h"
 #include "GameObject.h"
 
 #include "TypeIds.h"
@@ -21,6 +22,7 @@ namespace SpringEngine
     private:
 
         TransformComponent* mTransformComponent = nullptr;
+        RigidBodyComponent* mRigidBodyComponent = nullptr;
         float mMoveSpeed = 5.0f;
     };;
 }

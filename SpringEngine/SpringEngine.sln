@@ -120,6 +120,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Assets\Templates\FirstPerson_Camera.json = Assets\Templates\FirstPerson_Camera.json
 		Assets\Templates\fps_camera.json = Assets\Templates\fps_camera.json
 		Assets\Templates\ground.json = Assets\Templates\ground.json
+		Assets\Templates\PlayerObject_for_final.json = Assets\Templates\PlayerObject_for_final.json
 		Assets\Templates\test_model.json = Assets\Templates\test_model.json
 		Assets\Templates\test_model2.json = Assets\Templates\test_model2.json
 		Assets\Templates\test_object.json = Assets\Templates\test_object.json

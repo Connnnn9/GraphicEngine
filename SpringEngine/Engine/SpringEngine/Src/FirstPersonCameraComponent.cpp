@@ -12,7 +12,6 @@ using namespace SpringEngine::Input;
 
 void FirstPersonCameraComponent::Initialize()
 {
-	LOG("Initializing FirstPersonCameraComponent");
 
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
 	ASSERT(updateService != nullptr, "FirstPersonCameraComponent: Requires UpdateService.");
@@ -25,13 +24,9 @@ void FirstPersonCameraComponent::Initialize()
 	ASSERT(mCameraComponent != nullptr, "FirstPersonCameraComponent: Requires CameraComponent.");
 	cameraService->SetFirstPersonCamera(mCameraComponent);
 
-	LOG("Looking for Player: TestObject1");
 	GameObject* player = GetOwner().GetWorld().GetGameObject("TestObject1");
-	if (player == nullptr)
-	{
-		LOG("Player object not found: TestObject1");
-	}
 	ASSERT(player != nullptr, "FirstPersonCameraComponent: Player object not found.");
+	mPlayerTransform = player->GetComponent<TransformComponent>();
 
 	mPlayerTransform = player->GetComponent<TransformComponent>();
 	ASSERT(mPlayerTransform != nullptr, "FirstPersonCameraComponent: Requires TransformComponent.");
@@ -66,7 +61,6 @@ void FirstPersonCameraComponent::Update(float deltaTime)
 	}
 
 	Quaternion rotation = Quaternion::CreateFromYawPitchRoll(mYaw, mPitch, 0.0f);
-
 	Matrix4 rotationMatrix = Matrix4::RotationQuaternion(rotation);
 
 	Vector3 forward = Math::TransformNormal(Vector3::Forward, rotationMatrix);
@@ -76,6 +70,7 @@ void FirstPersonCameraComponent::Update(float deltaTime)
 
 	mCameraComponent->GetCamera().SetPosition(cameraPosition);
 	mCameraComponent->GetCamera().SetLookAt(cameraPosition + forward);
+	LOG("Camera Following Player at Position: X=%.6f, Y=%.6f, Z=%.6f", cameraPosition.x, cameraPosition.y, cameraPosition.z);
 }
 
 void FirstPersonCameraComponent::DebugUI()
