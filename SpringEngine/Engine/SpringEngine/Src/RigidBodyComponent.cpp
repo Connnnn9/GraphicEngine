@@ -35,11 +35,6 @@ void RigidBodyComponent::Deserialize(const rapidjson::Value& value)
 	if (value.HasMember("Mass"))
 	{
 		mMass = value["Mass"].GetFloat();
-		if (mMass <= 0.0f)
-		{
-			LOG("RigidBodyComponent: Mass is zero or negative, setting mass to default 10.0f.");
-			mMass = 10.0f;
-		}
 	}
 	if (value.HasMember("ColliderData"))
 	{

@@ -221,11 +221,6 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 					cameraComponent->Deserialize(gameObject.value["CameraComponent"].GetObj());
 				}
 			}
-			if (doc["GameObjects"].HasMember("TestObject1"))
-			{
-				const char* playerTemplate = doc["GameObjects"]["TestObject1"]["Template"].GetString();
-				GameObject* player = CreateGameObject(playerTemplate, "TestObject1");
-			}
 			obj->Initialize();
 		}
 	}

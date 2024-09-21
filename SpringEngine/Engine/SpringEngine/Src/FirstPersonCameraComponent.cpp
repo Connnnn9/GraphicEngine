@@ -65,8 +65,9 @@ void FirstPersonCameraComponent::Update(float deltaTime)
 
 	Vector3 forward = Math::TransformNormal(Vector3::Forward, rotationMatrix);
 
-	Vector3 cameraPosition = mPlayerTransform->position;
-	cameraPosition.y += mHeightOffset;
+	mTargetPosition = mPlayerTransform->position;
+	mTargetPosition.y += mHeightOffset;
+	Vector3 cameraPosition = Lerp(mCameraComponent->GetCamera().GetPosition(), mTargetPosition, deltaTime * 10.0f);
 
 	mCameraComponent->GetCamera().SetPosition(cameraPosition);
 	mCameraComponent->GetCamera().SetLookAt(cameraPosition + forward);

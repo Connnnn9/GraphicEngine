@@ -23,7 +23,7 @@ namespace SpringEngine
 
     private:
         CameraComponent* mCameraComponent = nullptr;
-        TransformComponent* mPlayerTransform = nullptr;
+        const TransformComponent* mPlayerTransform = nullptr;
         float mDistance = 5.0f;
         float mHeightOffset = 2.0f;
         float mYawSensitivity = 0.1f;

@@ -18,8 +18,11 @@ void PlayerControllerComponent::Initialize()
 	ASSERT(updateService != nullptr, "PlayerControllerComponent: Game world requires an update service.");
 	updateService->Register(this);
 
+    mRigidBodyComponent = GetOwner().GetComponent<RigidBodyComponent>();
+
 	mTransformComponent = GetOwner().GetComponent<TransformComponent>();
 	ASSERT(mTransformComponent != nullptr, "PlayerControllerComponent: Requires TransformComponent.");
+
 }
 
 void PlayerControllerComponent::Terminate()
@@ -67,7 +70,7 @@ void PlayerControllerComponent::Update(float deltaTime)
     {
         moveDirection = Math::Normalize(moveDirection);
         LOG("Player Move Direction: X=%.6f, Y=%.6f, Z=%.6f", moveDirection.x, moveDirection.y, moveDirection.z);
-        if (mRigidBodyComponent = GetOwner().GetComponent<RigidBodyComponent>())
+        if (mRigidBodyComponent)
         {
             Vector3 velocity = moveDirection * mMoveSpeed;
             mRigidBodyComponent->SetVelocity(velocity);
@@ -81,7 +84,7 @@ void PlayerControllerComponent::Update(float deltaTime)
     }
     else
     {
-        if (mRigidBodyComponent = GetOwner().GetComponent<RigidBodyComponent>())
+        if (mRigidBodyComponent)
         {
             mRigidBodyComponent->SetVelocity(Vector3::Zero);
             LOG("Player Velocity Stopped: X=0.0, Y=0.0, Z=0.0");
