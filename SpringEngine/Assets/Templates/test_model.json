@@ -12,6 +12,9 @@
         "../../Assets/Models/Finals/Samba/Samba.animset"
       ]
     },
+    "PlayerControllerComponent": {
+      "MoveSpeed": 5.0
+    },
     "AnimatorComponent": {
       "StartPlayIndex": 0
     },

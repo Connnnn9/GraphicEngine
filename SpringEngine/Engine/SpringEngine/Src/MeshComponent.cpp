@@ -117,3 +117,13 @@ const Model& MeshComponent::GetModel() const
 {
 	return mModel;
 }
+
+void MeshComponent::UpdateTransform(const Math::Vector3& newPosition)
+{
+
+	mTransform.position = newPosition;
+
+	mTransformMatrix = Math::Matrix4::Translation(newPosition);
+
+	LOG("MeshComponent: Updated position to %f, %f, %f", newPosition.x, newPosition.y, newPosition.z);
+}

@@ -12,14 +12,18 @@ namespace SpringEngine
 		void Terminate() override;
 
 		void Deserialize(const rapidjson::Value& value) override;
+
 		virtual Graphics::ModelId GetModelId() const override;
 		const Graphics::Model& GetModel() const override;
 
+
+		void UpdateTransform(const Math::Vector3& newPosition) override;
 	private:
 		std::string mFileName;
 		Graphics::ModelId mModelId;
 
 		using Animations = std::vector<std::string>;
 		Animations mAnimationFileNames;
+		Graphics::Transform mTransform;
 	};
 }

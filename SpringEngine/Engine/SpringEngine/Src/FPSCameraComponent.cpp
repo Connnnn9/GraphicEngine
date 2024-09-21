@@ -18,7 +18,12 @@ void FPSCameraComponent::Initialize()
 	updateService->Register(this);
 
 	mCameraComponent = GetOwner().GetComponent<CameraComponent>();
-}	 
+	ASSERT(mCameraComponent != nullptr, "FPSCameraComponent: Requires CameraComponent.");
+	mCameraComponent->SetFPSCamera(true);
+
+	mCameraComponent->Initialize();
+
+}	
 	 
 void FPSCameraComponent::Terminate()
 {
@@ -26,7 +31,9 @@ void FPSCameraComponent::Terminate()
 	ASSERT(updateService != nullptr, "FPSCameraComponent: game world requires and update service");
 	updateService->UnRegister(this);
 
-	mCameraComponent = nullptr;
+	mCameraComponent  = GetOwner().GetComponent<CameraComponent>();
+	ASSERT(mCameraComponent != nullptr, "FPSCameraComponent: Requires CameraComponent.");
+	mCameraComponent->Terminate();
 }	 
 	 
 void FPSCameraComponent::Update(float deltaTime)

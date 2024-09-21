@@ -41,7 +41,6 @@
 #include "RenderService.h"
 #include "UpdateService.h"
 #include "PhysicsService.h"
-#include "PlayerControllerService.h"
 #include "UIRenderService.h"
 
 namespace SpringEngine

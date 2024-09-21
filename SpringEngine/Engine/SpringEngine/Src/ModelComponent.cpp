@@ -52,3 +52,8 @@ const Graphics::Model& SpringEngine::ModelComponent::GetModel() const
 {
 	return *ModelManager::Get()->GetModel(mModelId);
 }
+void ModelComponent::UpdateTransform(const Math::Vector3& newPosition)
+{
+	mTransform.position = newPosition;
+	LOG("ModelComponent: Updated position to %f, %f, %f", newPosition.x, newPosition.y, newPosition.z);
+}

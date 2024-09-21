@@ -9,6 +9,8 @@
 #include "PhysicsService.h"
 
 #include "TransformComponent.h"
+#include "FirstPersonCameraComponent.h"
+#include "ThirdPersonCameraComponent.h"
 #include "CameraComponent.h"
 #include "UISpriteComponent.h"
 #include "UIButtonComponent.h"
@@ -159,12 +161,29 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 	uint32_t capacity = static_cast<uint32_t>(doc["Capacity"].GetInt());
 	Initialize(capacity);
 
+	if (doc["GameObjects"].HasMember("TestObject1"))
+	{
+		const char* playerTemplate = doc["GameObjects"]["TestObject1"]["Template"].GetString();
+		GameObject* player = CreateGameObject(playerTemplate, "TestObject1");
+		LOG("Creating Player: TestObject1");
+		ASSERT(player != nullptr, "GameWorld: Failed to create player (TestObject1).");
+
+		if (player != nullptr)
+		{
+			player->Initialize();
+		}
+	}
+
+
 	auto gameobjects = doc["GameObjects"].GetObj();
 	for (auto& gameObject : gameobjects)
 	{
 		std::string name = gameObject.name.GetString();
 		const char* templateFile = gameObject.value["Template"].GetString();
 		GameObject* obj = CreateGameObject(templateFile, name);
+
+		LOG("Creating game object: %s", name.c_str());
+
 		if (obj != nullptr)
 		{
 			if (gameObject.value.HasMember("TransformComponent"))
@@ -173,6 +192,22 @@ void GameWorld::LoadLevel(const std::filesystem::path& levelFile)
 				if (transformComponent != nullptr)
 				{
 					transformComponent->Deserialize(gameObject.value["TransformComponent"].GetObj());
+				}
+			}
+			if (gameObject.value.HasMember("FirstPersonCameraComponent")) 
+			{
+				FirstPersonCameraComponent* firstPersonCamera = obj->GetComponent<FirstPersonCameraComponent>();
+				if (firstPersonCamera != nullptr)
+				{
+					firstPersonCamera->Deserialize(gameObject.value["FirstPersonCameraComponent"].GetObj());
+				}
+			}
+			if (gameObject.value.HasMember("ThirdPersonCameraComponent"))
+			{
+				ThirdPersonCameraComponent* thirdPersonCamera = obj->GetComponent<ThirdPersonCameraComponent>();
+				if (thirdPersonCamera != nullptr)
+				{
+					thirdPersonCamera->Deserialize(gameObject.value["ThirdPersonCameraComponent"].GetObj());
 				}
 			}
 			if (gameObject.value.HasMember("UISpriteComponent"))

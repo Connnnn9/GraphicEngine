@@ -167,7 +167,6 @@
     <ClInclude Include="Inc\ParticleSystem.h" />
     <ClInclude Include="Inc\PhysicsService.h" />
     <ClInclude Include="Inc\PlayerControllerComponent.h" />
-    <ClInclude Include="Inc\PlayerControllerService.h" />
     <ClInclude Include="Inc\RenderObjectComponent.h" />
     <ClInclude Include="Inc\RenderService.h" />
     <ClInclude Include="Inc\RigidBodyComponent.h" />
@@ -192,7 +191,7 @@
     <ClCompile Include="Src\CameraService.cpp" />
     <ClCompile Include="Src\EventManager.cpp" />
     <ClCompile Include="Src\FireworkParticleSystem.cpp" />
-    <ClCompile Include="Src\FirstPersonCamera.cpp" />
+    <ClCompile Include="Src\FirstPersonCameraComponent.cpp" />
     <ClCompile Include="Src\FPSCameraComponent.cpp" />
     <ClCompile Include="Src\GameObject.cpp" />
     <ClCompile Include="Src\GameObjectFactory.cpp" />
@@ -203,7 +202,6 @@
     <ClCompile Include="Src\ParticleSystem.cpp" />
     <ClCompile Include="Src\PhysicsService.cpp" />
     <ClCompile Include="Src\PlayerControllerComponent.cpp" />
-    <ClCompile Include="Src\PlayerControllerService.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>

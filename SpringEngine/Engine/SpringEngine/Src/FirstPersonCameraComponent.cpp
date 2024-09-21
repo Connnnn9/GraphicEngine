@@ -1,47 +1,54 @@
 #include "Precompiled.h"
-#include "ThirdPersonCameraComponent.h"
+#include "FirstPersonCameraComponent.h"
+#include "UpdateService.h"
 #include "GameObject.h"
 
 #include "GameWorld.h"
-#include "UpdateService.h"
 #include "CameraService.h"
 
 using namespace SpringEngine;
-using namespace SpringEngine::Math;
+using namespace SpringEngine::Graphics;
 using namespace SpringEngine::Input;
 
-void ThirdPersonCameraComponent::Initialize()
+void FirstPersonCameraComponent::Initialize()
 {
+	LOG("Initializing FirstPersonCameraComponent");
+
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
-	ASSERT(updateService != nullptr, "ThirdPersonCameraComponent: game world requires an UpdateService.");
+	ASSERT(updateService != nullptr, "FirstPersonCameraComponent: Requires UpdateService.");
 	updateService->Register(this);
 
 	CameraService* cameraService = GetOwner().GetWorld().GetService<CameraService>();
-	ASSERT(cameraService != nullptr, "ThirdPersonCameraComponent: CameraService not found.");
+	ASSERT(cameraService != nullptr, "FirstPersonCameraComponent: CameraService not found.");
 
 	mCameraComponent = GetOwner().GetComponent<CameraComponent>();
-	ASSERT(mCameraComponent != nullptr, "ThirdPersonCameraComponent: Requires CameraComponent.");
-	cameraService->SetThirdPersonCamera(mCameraComponent);
+	ASSERT(mCameraComponent != nullptr, "FirstPersonCameraComponent: Requires CameraComponent.");
+	cameraService->SetFirstPersonCamera(mCameraComponent);
 
+	LOG("Looking for Player: TestObject1");
 	GameObject* player = GetOwner().GetWorld().GetGameObject("TestObject1");
-	ASSERT(player != nullptr, "ThirdPersonCameraComponent: Player object not found.");
+	if (player == nullptr)
+	{
+		LOG("Player object not found: TestObject1");
+	}
+	ASSERT(player != nullptr, "FirstPersonCameraComponent: Player object not found.");
 
 	mPlayerTransform = player->GetComponent<TransformComponent>();
-	ASSERT(mPlayerTransform != nullptr, "ThirdPersonCameraComponent: Requires TransformComponent.");
+	ASSERT(mPlayerTransform != nullptr, "FirstPersonCameraComponent: Requires TransformComponent.");
 
 }
 
-void ThirdPersonCameraComponent::Terminate()
+void FirstPersonCameraComponent::Terminate()
 {
 	UpdateService* updateService = GetOwner().GetWorld().GetService<UpdateService>();
-	ASSERT(updateService != nullptr, "ThirdPersonCameraComponent: game world requires an UpdateService.");
+	ASSERT(updateService != nullptr, "FirstPersonCameraComponent: game world requires an UpdateService.");
 	updateService->UnRegister(this);
 
 	mCameraComponent = nullptr;
 	mPlayerTransform = nullptr;
 }
 
-void ThirdPersonCameraComponent::Update(float deltaTime)
+void FirstPersonCameraComponent::Update(float deltaTime)
 {
 	InputSystem* input = InputSystem::Get();
 
@@ -49,7 +56,7 @@ void ThirdPersonCameraComponent::Update(float deltaTime)
 	float yawRadians = mouseDeltaX * mYawSensitivity * deltaTime;
 	mYaw += yawRadians;
 
-	if (input->IsKeyDown(KeyCode::LCONTROL)) 
+	if (input->IsKeyDown(KeyCode::LCONTROL))
 	{
 		float mouseDeltaY = input->GetMouseMoveY();
 		mPitch -= mouseDeltaY * mPitchSensitivity * deltaTime;
@@ -65,29 +72,23 @@ void ThirdPersonCameraComponent::Update(float deltaTime)
 	Vector3 forward = Math::TransformNormal(Vector3::Forward, rotationMatrix);
 
 	Vector3 cameraPosition = mPlayerTransform->position;
-	cameraPosition -= forward * mDistance; 
 	cameraPosition.y += mHeightOffset;
 
 	mCameraComponent->GetCamera().SetPosition(cameraPosition);
-	mCameraComponent->GetCamera().SetLookAt(mPlayerTransform->position);
+	mCameraComponent->GetCamera().SetLookAt(cameraPosition + forward);
 }
 
-void ThirdPersonCameraComponent::DebugUI()
+void FirstPersonCameraComponent::DebugUI()
 {
-	if (ImGui::CollapsingHeader("ThirdPersonCamera Settings"))
+	if (ImGui::CollapsingHeader("FirstPersonCamera Settings"))
 	{
-		ImGui::SliderFloat("Camera Distance", &mDistance, 1.0f, 20.0f);
-		ImGui::SliderFloat("Height Offset", &mHeightOffset, 0.0f, 10.0f);
+		ImGui::SliderFloat("Height Offset", &mHeightOffset, 0.0f, 5.0f);
 		ImGui::SliderFloat("Yaw Sensitivity", &mYawSensitivity, 0.01f, 1.0f);
 	}
 }
 
-void ThirdPersonCameraComponent::Deserialize(const rapidjson::Value& value)
+void FirstPersonCameraComponent::Deserialize(const rapidjson::Value& value)
 {
-	if (value.HasMember("Distance"))
-	{
-		mDistance = value["Distance"].GetFloat();
-	}
 	if (value.HasMember("HeightOffset"))
 	{
 		mHeightOffset = value["HeightOffset"].GetFloat();
@@ -97,5 +98,4 @@ void ThirdPersonCameraComponent::Deserialize(const rapidjson::Value& value)
 		mYawSensitivity = value["YawSensitivity"].GetFloat();
 	}
 }
-
 

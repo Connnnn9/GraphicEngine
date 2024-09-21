@@ -157,6 +157,17 @@ namespace SpringEngine::Math
 			);
 		}
 
+		static Matrix4 RotationQuaternion(const Quaternion& q)
+		{
+			return Matrix4
+			{
+				1.0f - 2.0f * (q.y * q.y + q.z * q.z), 2.0f * (q.x * q.y + q.z * q.w),     2.0f * (q.x * q.z - q.y * q.w),     0.0f,
+				2.0f * (q.x * q.y - q.z * q.w),         1.0f - 2.0f * (q.x * q.x + q.z * q.z), 2.0f * (q.y * q.z + q.x * q.w),     0.0f,
+				2.0f * (q.x * q.z + q.y * q.w),         2.0f * (q.y * q.z - q.x * q.w),     1.0f - 2.0f * (q.x * q.x + q.y * q.y), 0.0f,
+				0.0f,                                   0.0f,                               0.0f,                               1.0f
+			};
+		}
+
 		constexpr Matrix4 operator-() const
 		{
 			return Matrix4(

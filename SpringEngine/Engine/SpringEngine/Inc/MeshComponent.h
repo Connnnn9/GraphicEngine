@@ -13,7 +13,11 @@ namespace SpringEngine
 
 		const Graphics::Model& GetModel() const override;
 
+		void UpdateTransform(const Math::Vector3& newPosition) override;
+
 	private:
 		Graphics::Model mModel;
+		Graphics::Transform mTransform;
+		Math::Matrix4 mTransformMatrix;
 	};
 }

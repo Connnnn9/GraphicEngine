@@ -14,9 +14,16 @@ namespace SpringEngine
 		virtual void Deserialize(const rapidjson::Value& value) override;
 
 		Graphics::Camera& GetCamera();
+
 		const Graphics::Camera& GetCamera() const;
+		void SetFPSCamera(bool isFPS) { mIsFPSCamera = isFPS; }
+		void SetFirstPersonCamera(bool isFirstPerson) { mIsFirstPersonCamera = isFirstPerson; }
+		void SetThirdPersonCamera(bool isThirdPerson) { mIsThirdPersonCamera = isThirdPerson; }
 
 	private:
 		Graphics::Camera mCamera;
+		bool mIsFPSCamera = false;
+		bool mIsFirstPersonCamera = false;
+		bool mIsThirdPersonCamera = false;
 	};
 }

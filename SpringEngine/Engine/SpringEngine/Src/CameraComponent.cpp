@@ -14,6 +14,19 @@ void CameraComponent::Initialize()
 	ASSERT(cameraService != nullptr, "CameraComponent: GameWorld needs a camera service");
 
 	cameraService->Register(this);
+
+	if (mIsFPSCamera)
+	{
+		cameraService->SetFPSCamera(this);
+	}
+	else if (mIsFirstPersonCamera)
+	{
+		cameraService->SetFirstPersonCamera(this);
+	}
+	else if (mIsThirdPersonCamera)
+	{
+		cameraService->SetThirdPersonCamera(this);
+	}
 }
 
 void CameraComponent::Terminate()

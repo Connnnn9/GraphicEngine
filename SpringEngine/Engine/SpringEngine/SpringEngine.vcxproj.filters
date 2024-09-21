@@ -144,9 +144,6 @@
     <ClInclude Include="Inc\PlayerControllerComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\PlayerControllerService.h">
-      <Filter>Inc\Services</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\ThirdPersonCameraComponent.h">
       <Filter>Inc\Componets</Filter>
     </ClInclude>
@@ -227,17 +224,16 @@
     <ClCompile Include="Src\UIButtonComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
-    <ClCompile Include="Src\FirstPersonCamera.cpp">
+    <ClCompile Include="Src\FirstPersonCameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
     <ClCompile Include="Src\PlayerControllerComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
-    <ClCompile Include="Src\PlayerControllerService.cpp">
-      <Filter>Src\Services</Filter>
-    </ClCompile>
     <ClCompile Include="Src\ThirdPersonCameraComponent.cpp">
       <Filter>Src\Componets</Filter>
     </ClCompile>
+    <ClCompile Include="Src\UIRenderService.cpp" />
+    <ClCompile Include="Src\UISpriteComponent.cpp" />
   </ItemGroup>
 </Project>

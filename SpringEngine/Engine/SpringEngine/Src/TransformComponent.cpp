@@ -14,6 +14,7 @@ void SpringEngine::TransformComponent::Deserialize(const rapidjson::Value& value
 	if (value.HasMember("Position"))
 	{
 		const auto& pos = value["Position"].GetArray();
+		LOG("Position: %f, %f, %f", pos[0].GetFloat(), pos[1].GetFloat(), pos[2].GetFloat());
 		position.x = pos[0].GetFloat();
 		position.y = pos[1].GetFloat();
 		position.z = pos[2].GetFloat();

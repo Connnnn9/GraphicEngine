@@ -19,6 +19,7 @@ namespace SpringEngine
         void Deserialize(const rapidjson::Value& value) override;
 
     private:
+
         TransformComponent* mTransformComponent = nullptr;
         float mMoveSpeed = 5.0f;
     };;

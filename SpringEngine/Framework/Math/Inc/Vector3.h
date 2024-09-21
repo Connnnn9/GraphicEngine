@@ -20,6 +20,10 @@ namespace SpringEngine::Math
 		const static Vector3 XAxis;
 		const static Vector3 YAxis;
 		const static Vector3 ZAxis;
+		const static Vector3 Forward;
+		const static Vector3 Backward;
+		const static Vector3 Left;
+		const static Vector3 Right;
 
 		constexpr Vector3 operator-() const { return { -x, -y, -z }; }
 		constexpr Vector3 operator+(Vector3 b) const { return { x + b.x, y + b.y, z + b.z }; }

@@ -1,0 +1,12 @@
+{
+  "Components": {
+    "CameraComponent": {
+      "Position": [ 0.0, 1.8, 0.0 ],
+      "LookAt": [ 0.0, 0.0, 1.0 ]
+    },
+    "FirstPersonCameraComponent": {
+      "HeightOffset": 1.8,
+      "YawSensitivity": 0.1
+    }
+  }
+}
